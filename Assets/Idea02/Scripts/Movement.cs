@@ -33,13 +33,11 @@ public class Movement : MonoBehaviour
             if(Input.GetAxis("Horizontal") > 0)
             {
                 anim.Play("WalkRight");
-                //StartCoroutine(MoveRight(legWait));
                 MoveRight();
             }
             else
             {
                 anim.Play("WalkLeft");
-                //StartCoroutine(MoveLeft(legWait));
                 MoveLeft();
 
             }
@@ -49,15 +47,9 @@ public class Movement : MonoBehaviour
         {
             anim.Play("idle");
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Hip.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
-            //leftLegRB.AddForce(Vector2.up * (jumpHeight*1000));
-            //rightLegRB.AddForce(Vector2.up * (jumpHeight * 1000));
-            if(leftLegRB.IsTouchingLayers(LayerMask.GetMask("Ground")) || rightLegRB.IsTouchingLayers(LayerMask.GetMask("Ground")))
-            {
-                Hip.AddForce(new Vector2(0, 1f) * (jumpHeight * 1000));
-            }
-
+            Hip.AddForce(new Vector2(0, Input.GetAxis("Vertical")) * (jumpHeight * 1000));
         }
        
     }
@@ -72,17 +64,4 @@ public class Movement : MonoBehaviour
         //Hip.AddForce(new Vector2(-1, 0f) * (speed * 1000) * Time.deltaTime);
         Hip.velocity = new Vector2(-1 * (speed * 1000) * Time.deltaTime, 0);
     }
-    //IEnumerator MoveRight(float seconds)
-    //{
-    //    leftLegRB.AddForce(new Vector2(1, 1f) * (speed * 1000) * Time.deltaTime);
-    //    yield return new WaitForSeconds(seconds);
-    //    rightLegRB.AddForce(new Vector2(1, 1f) * (speed * 1000) * Time.deltaTime);
-    //}
-
-    //IEnumerator MoveLeft(float seconds)
-    //{
-    //    rightLegRB.AddForce(new Vector2(-1, 1f) * (speed * 1000) * Time.deltaTime);
-    //    yield return new WaitForSeconds(seconds);
-    //    leftLegRB.AddForce(new Vector2(-1, 1f) * (speed * 1000) * Time.deltaTime);
-    //}
 }
