@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
                 anim.Play("WalkLeft");
                 //StartCoroutine(MoveLeft(legWait));
                 MoveLeft();
-            
+
             }
             
         }
@@ -61,28 +61,28 @@ public class Movement : MonoBehaviour
         }
        
     }
-    
+
     void MoveRight()
     {
         //Hip.AddForce(new Vector2(1, 0f) * (speed * 1000) * Time.deltaTime);
-        Hip.velocity = new Vector2(1 * (speed * 1000) * Time.deltaTime, Hip.velocity.y);
+        Hip.velocity = new Vector2(1 * (speed * 1000) * Time.deltaTime, 0);
     }
     void MoveLeft()
     {
         //Hip.AddForce(new Vector2(-1, 0f) * (speed * 1000) * Time.deltaTime);
-        Hip.velocity = new Vector2(-1 * (speed * 1000) * Time.deltaTime, Hip.velocity.y);
+        Hip.velocity = new Vector2(-1 * (speed * 1000) * Time.deltaTime, 0);
     }
     //IEnumerator MoveRight(float seconds)
     //{
-    //    leftLegRB.AddForce(new Vector2(1, 1f) * (speed*1000) * Time.deltaTime);
+    //    leftLegRB.AddForce(new Vector2(1, 1f) * (speed * 1000) * Time.deltaTime);
     //    yield return new WaitForSeconds(seconds);
     //    rightLegRB.AddForce(new Vector2(1, 1f) * (speed * 1000) * Time.deltaTime);
     //}
 
     //IEnumerator MoveLeft(float seconds)
     //{
-    //    rightLegRB.AddForce(new Vector2(-1,1f) * (speed * 1000) * Time.deltaTime);
+    //    rightLegRB.AddForce(new Vector2(-1, 1f) * (speed * 1000) * Time.deltaTime);
     //    yield return new WaitForSeconds(seconds);
-    //    leftLegRB.AddForce(new Vector2(-1,1f) * (speed * 1000) * Time.deltaTime);
+    //    leftLegRB.AddForce(new Vector2(-1, 1f) * (speed * 1000) * Time.deltaTime);
     //}
 }
