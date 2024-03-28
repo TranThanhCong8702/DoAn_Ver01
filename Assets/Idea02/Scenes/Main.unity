@@ -325,6 +325,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1370446381697412152, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370446382059984147, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
+      propertyPath: force
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370446382059984147, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370446382409614886, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
+      propertyPath: force
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370446382409614886, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370446382469691492, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1370446382881669576, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -368,6 +392,10 @@ PrefabInstance:
     - target: {fileID: 1370446382881669576, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370446382881669578, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1370446382881669581, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
       propertyPath: m_Name
