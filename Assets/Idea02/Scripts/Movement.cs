@@ -43,10 +43,10 @@ public class Movement : MonoBehaviour
             }
             
         }
-        else
-        {
-            anim.Play("idle");
-        }
+        //else
+        //{
+        //    anim.Play("idle");
+        //}
         if (Hip.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             Hip.AddForce(new Vector2(0, Input.GetAxis("Vertical")) * (jumpHeight * 1000));
