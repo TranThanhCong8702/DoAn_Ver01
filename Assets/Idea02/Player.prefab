@@ -162,10 +162,10 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: -45
+    m_UpperAngle: 45
 --- !u!70 &1370446381682357311
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370446381697412155}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -667,14 +667,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370446382059984146}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5faf3a4f91b64b338ee355479b1d986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetRotation: 0
   rb: {fileID: 0}
-  force: 800
+  force: 150
 --- !u!1 &1370446382271009934
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,14 +979,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370446382409614905}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5faf3a4f91b64b338ee355479b1d986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetRotation: 0
   rb: {fileID: 0}
-  force: 800
+  force: 150
 --- !u!1 &1370446382469691515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1083,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370446382469691515}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1542,7 +1542,7 @@ MonoBehaviour:
   leftLeg: {fileID: 1370446382409614905}
   rightLeg: {fileID: 1370446382059984146}
   Hip: {fileID: 1370446381697412152}
-  speed: 0.5
+  speed: 1
   jumpHeight: 5
   legWait: 0
 --- !u!114 &1370446382881669577
@@ -1719,10 +1719,10 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: -45
+    m_UpperAngle: 45
 --- !u!70 &1370446383159075505
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
