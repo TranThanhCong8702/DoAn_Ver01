@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float speed = 2f;
     [SerializeField] float jumpHeight = 2f;
     [SerializeField] float legWait = .5f;
+    float Horizontal = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +24,17 @@ public class Movement : MonoBehaviour
         anim = GetComponent<Animator>();
         
     }
-
+    private void Update()
+    {
+        Horizontal = Input.GetAxisRaw("Horizontal");
+    }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
-        if(Input.GetAxisRaw("Horizontal") != 0)
+        if(Horizontal != 0)
         {
-            if(Input.GetAxis("Horizontal") > 0)
+            if(Horizontal > 0)
             {
                 anim.Play("WalkRight");
                 MoveRight();
@@ -57,11 +61,11 @@ public class Movement : MonoBehaviour
     void MoveRight()
     {
         //Hip.AddForce(new Vector2(1, 0f) * (speed * 1000) * Time.deltaTime);
-        Hip.velocity = new Vector2(1 * (speed * 1000) * Time.deltaTime, 0);
+        Hip.velocity = new Vector2(1 * (speed), 0);
     }
     void MoveLeft()
     {
         //Hip.AddForce(new Vector2(-1, 0f) * (speed * 1000) * Time.deltaTime);
-        Hip.velocity = new Vector2(-1 * (speed * 1000) * Time.deltaTime, 0);
+        Hip.velocity = new Vector2(-1 * (speed), 0);
     }
 }

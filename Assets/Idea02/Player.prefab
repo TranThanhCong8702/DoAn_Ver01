@@ -1542,7 +1542,7 @@ MonoBehaviour:
   leftLeg: {fileID: 1370446382409614905}
   rightLeg: {fileID: 1370446382059984146}
   Hip: {fileID: 1370446381697412152}
-  speed: 1
+  speed: 8
   jumpHeight: 5
   legWait: 0
 --- !u!114 &1370446382881669577
