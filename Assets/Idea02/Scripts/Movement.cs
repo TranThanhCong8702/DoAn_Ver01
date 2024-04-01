@@ -36,12 +36,12 @@ public class Movement : MonoBehaviour
         {
             if(Horizontal > 0)
             {
-                anim.Play("WalkRight");
+                anim.Play("WalkRight");//Chua play dc het animation da play lai.
                 MoveRight();
             }
             else
             {
-                anim.Play("WalkLeft");
+                anim.Play("WalkLeft");//Chua play dc het animation da play lai.
                 MoveLeft();
 
             }
@@ -61,11 +61,11 @@ public class Movement : MonoBehaviour
     void MoveRight()
     {
         //Hip.AddForce(new Vector2(1, 0f) * (speed * 1000) * Time.deltaTime);
-        Hip.velocity = new Vector2(1 * (speed), 0);
+        Hip.velocity = new Vector2(1 * (speed), Hip.velocity.y);
     }
     void MoveLeft()
     {
         //Hip.AddForce(new Vector2(-1, 0f) * (speed * 1000) * Time.deltaTime);
-        Hip.velocity = new Vector2(-1 * (speed), 0);
+        Hip.velocity = new Vector2(-1 * (speed), Hip.velocity.y);
     }
 }
