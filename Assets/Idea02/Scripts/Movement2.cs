@@ -49,6 +49,12 @@ public class Movement2 : MonoBehaviour
         else
         {
             anim.Play("idle");
+            if(Mathf.Abs(Hip.velocity.x) < 3f)
+            {
+                leftLegRB.velocity = new Vector2(0, Hip.velocity.y);
+                rightLegRB.velocity = new Vector2(0, Hip.velocity.y);
+                Hip.velocity = new Vector2(0, Hip.velocity.y);
+            }
         }
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
