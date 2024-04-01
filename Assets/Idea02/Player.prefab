@@ -133,7 +133,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -164,8 +164,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -90
-    m_UpperAngle: 90
+    m_LowerAngle: -80
+    m_UpperAngle: 80
 --- !u!70 &1370446381682357311
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRotation: 0
   rb: {fileID: 0}
-  force: 2000
+  force: 800
 --- !u!61 &177872121
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -611,10 +611,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -923,10 +923,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRotation: 0
   rb: {fileID: 1370446382469691492}
-  force: 1200
+  force: 800
 --- !u!70 &1370446382469691513
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1473,8 +1473,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1370446382881669576}
   - component: {fileID: 1370446382881669579}
-  - component: {fileID: 1370446382881669578}
   - component: {fileID: 1370446382881669577}
+  - component: {fileID: 2109985765}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1527,24 +1527,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1370446382881669578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370446382881669581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 706b06d577d654e008dac343240cd713, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftLeg: {fileID: 1370446382409614905}
-  rightLeg: {fileID: 1370446382059984146}
-  Hip: {fileID: 1370446381697412152}
-  speed: 10
-  jumpHeight: 10
-  legWait: 0
 --- !u!114 &1370446382881669577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,6 +1539,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190f0120d15b34bf7a9a04881dfe4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2109985765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370446382881669581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2703d57d3f34d8f428f3045f2d376760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftLeg: {fileID: 1370446381682357296}
+  rightLeg: {fileID: 1370446383159075506}
+  leftLegRBlow: {fileID: 1370446382409614885}
+  rightLegRBlow: {fileID: 1370446382059984158}
+  Hip: {fileID: 1370446381697412152}
+  speed: 8
+  jumpHeight: 2
+  legWait: 0.05
 --- !u!1 &1370446383150594851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,7 +1692,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1721,8 +1723,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -90
-    m_UpperAngle: 90
+    m_LowerAngle: -80
+    m_UpperAngle: 80
 --- !u!70 &1370446383159075505
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
