@@ -1475,6 +1475,7 @@ GameObject:
   - component: {fileID: 1370446382881669579}
   - component: {fileID: 1370446382881669577}
   - component: {fileID: 2109985765}
+  - component: {fileID: 829393444}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1551,14 +1552,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2703d57d3f34d8f428f3045f2d376760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLeg: {fileID: 1370446381682357296}
-  rightLeg: {fileID: 1370446383159075506}
+  leftLegRB: {fileID: 1370446381682357297}
+  rightLegRB: {fileID: 1370446383159075507}
   leftLegRBlow: {fileID: 1370446382409614885}
   rightLegRBlow: {fileID: 1370446382059984158}
   Hip: {fileID: 1370446381697412152}
+  MaxSpeed: 8
+  MinSpeed: 0
+  accelRate: 2
+  deAccelRate: 0
   speed: 8
   jumpHeight: 2
   legWait: 0.05
+--- !u!114 &829393444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370446382881669581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 56e796dbc8bd7d0479f75f7e74cc8a27, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1370446383150594851
 GameObject:
   m_ObjectHideFlags: 0
