@@ -10,7 +10,7 @@ public class Movement2 : MonoBehaviour
 
     [SerializeField] Rigidbody2D leftLegRBlow;
     [SerializeField] Rigidbody2D rightLegRBlow;
-    [SerializeField] Rigidbody2D Hip;
+    public Rigidbody2D Hip;
     Animator anim;
 
     [SerializeField] float MaxSpeed;
@@ -23,6 +23,8 @@ public class Movement2 : MonoBehaviour
     [SerializeField] float legWait = .5f;
 
     public bool IsFlying;
+    public bool MouseIsUp = true;
+    public bool IsOnGround = true;
     Vector2 moveVal;
     // Start is called before the first frame update
     void Start()
@@ -35,53 +37,87 @@ public class Movement2 : MonoBehaviour
         Debug.Log(moveVal);
     }
 
+    void OnFire(InputValue val)
+    {
+        if (val.isPressed)
+        {
+            MouseIsUp = false;
+            GameManager.instance.hook.gameObject.SetActive(true);
+            var t = GameManager.instance.cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 distanceVector = t - GameManager.instance.hook.transform.position;
+
+            float angle = -Mathf.Atan2(distanceVector.x, distanceVector.y) * Mathf.Rad2Deg;
+            GameManager.instance.hook.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            GameManager.instance.hook.rb.AddForce((Vector3.Normalize((Vector2)t - (Vector2)GameManager.instance.hook.transform.position)) * (GameManager.instance.hook.speed * 100), ForceMode2D.Force);
+            //IsFlying = true;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-
-        if (moveVal.x != 0)
+        if (!MouseIsUp)
         {
-            if (moveVal.x < 0)
+            GameManager.instance._line.SetPosition(0, Hip.position);
+            GameManager.instance._line.SetPosition(1, GameManager.instance.hook.transform.position);
+            if (Vector2.Distance(GameManager.instance.hook.transform.position, Hip.position) > 15)
             {
-                if (IsFlying) return;
-                anim.Play("WalkLeft");
-                StartCoroutine(MoveLeft(legWait));
-                if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
+                GameManager.instance.hook.transform.position = Hip.position;
+                GameManager.instance.hook.DisableJoint();
+                GameManager.instance.hook.gameObject.SetActive(false);
+                GameManager.instance._line.SetPosition(0, Hip.position);
+                GameManager.instance._line.SetPosition(1, Hip.position);
+            }
+        }
+        else if(!IsFlying)
+        {
+            if (moveVal.x != 0)
+            {
+                if (moveVal.x < 0)
                 {
-                    Hip.velocity = new Vector2(-MaxSpeed, Hip.velocity.y);
+                    //if (IsFlying) return;
+                    anim.Play("WalkLeft");
+                    StartCoroutine(MoveLeft(legWait));
+                    if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
+                    {
+                        Hip.velocity = new Vector2(-MaxSpeed, Hip.velocity.y);
+                    }
+                    else
+                    {
+                        Hip.velocity = new Vector2(Hip.velocity.x, 0);
+                    }
                 }
                 else
                 {
-                    Hip.velocity = new Vector2(Hip.velocity.x, 0);
+                    //if (IsFlying) return;
+                    anim.Play("WalkRight");
+                    StartCoroutine(MoveRight(legWait));
+                    //Hip.velocity = new Vector2(Hip.velocity.x, 0);
+                    if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
+                    {
+                        Hip.velocity = new Vector2(MaxSpeed, Hip.velocity.y);
+                    }
+                    else
+                    {
+                        Hip.velocity = new Vector2(Hip.velocity.x, 0);
+                    }
                 }
+
             }
             else
             {
-                if (IsFlying) return;
-                anim.Play("WalkRight");
-                StartCoroutine(MoveRight(legWait));
-                //Hip.velocity = new Vector2(Hip.velocity.x, 0);
-                if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
-                {
-                    Hip.velocity = new Vector2(MaxSpeed, Hip.velocity.y);
-                }
-                else
-                {
-                    Hip.velocity = new Vector2(Hip.velocity.x, 0);
-                }
+                anim.Play("idle");
             }
-
         }
-        else
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            anim.Play("idle");
+            MouseIsUp = true;
+            GameManager.instance.hook.transform.position = Hip.position;
+            GameManager.instance.hook.DisableJoint();
+            GameManager.instance.hook.gameObject.SetActive(false);
+            GameManager.instance._line.SetPosition(0, Hip.position);
+            GameManager.instance._line.SetPosition(1, Hip.position);
         }
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    leftLegRB.AddForce(Vector2.up * (jumpHeight * 1000));
-        //    rightLegRB.AddForce(Vector2.up * (jumpHeight * 1000));
-        //}
-
     }
 
 
