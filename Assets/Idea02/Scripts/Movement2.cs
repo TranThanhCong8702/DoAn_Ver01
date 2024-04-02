@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement2 : MonoBehaviour
 {
@@ -15,41 +16,58 @@ public class Movement2 : MonoBehaviour
     [SerializeField] float MaxSpeed;
     [SerializeField] float MinSpeed;
 
-    [SerializeField] float accelRate;
     [SerializeField] float deAccelRate;
 
     [SerializeField] float speed = 2f;
     [SerializeField] float jumpHeight = 2f;
     [SerializeField] float legWait = .5f;
+
+    public bool IsFlying;
+    Vector2 moveVal;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
     }
+    void OnMove(InputValue value)
+    {
+        moveVal = value.Get<Vector2>();
+        Debug.Log(moveVal);
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Horizontal") != 0)
+
+        if (moveVal.x != 0)
         {
-            if (Input.GetAxis("Horizontal") < 0)
+            if (moveVal.x < 0)
             {
+                if (IsFlying) return;
                 anim.Play("WalkLeft");
                 StartCoroutine(MoveLeft(legWait));
-                Hip.velocity = new Vector2(Hip.velocity.x, 0);
                 if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
                 {
                     Hip.velocity = new Vector2(-MaxSpeed, Hip.velocity.y);
                 }
+                else
+                {
+                    Hip.velocity = new Vector2(Hip.velocity.x, 0);
+                }
             }
             else
             {
+                if (IsFlying) return;
                 anim.Play("WalkRight");
                 StartCoroutine(MoveRight(legWait));
-                Hip.velocity = new Vector2(Hip.velocity.x, 0);
+                //Hip.velocity = new Vector2(Hip.velocity.x, 0);
                 if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
                 {
                     Hip.velocity = new Vector2(MaxSpeed, Hip.velocity.y);
+                }
+                else
+                {
+                    Hip.velocity = new Vector2(Hip.velocity.x, 0);
                 }
             }
 
@@ -71,6 +89,7 @@ public class Movement2 : MonoBehaviour
     {
         if((leftLegRBlow.IsTouchingLayers(LayerMask.GetMask("Ground")) || rightLegRBlow.IsTouchingLayers(LayerMask.GetMask("Ground"))))
         {
+            //yield return new WaitForSeconds(seconds);
             leftLegRB.AddForce(Vector2.right * (speed * 1000) * Time.deltaTime);
             rightLegRB.AddForce(Vector2.left * (speed * 1000) / 2 * Time.deltaTime);
             yield return new WaitForSeconds(seconds);
@@ -83,6 +102,7 @@ public class Movement2 : MonoBehaviour
     {
         if ((leftLegRBlow.IsTouchingLayers(LayerMask.GetMask("Ground")) || rightLegRBlow.IsTouchingLayers(LayerMask.GetMask("Ground"))))
         {
+            //yield return new WaitForSeconds(seconds);
             rightLegRB.AddForce(Vector2.left * (speed * 1000) * Time.deltaTime);
             leftLegRB.AddForce(Vector2.right * (speed * 1000) / 2 * Time.deltaTime);
             yield return new WaitForSeconds(seconds);
