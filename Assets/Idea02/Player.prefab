@@ -162,6 +162,7 @@ MonoBehaviour:
   rb: {fileID: 904085264}
   speed: 8
   move: {fileID: 2109985765}
+  length: 25
 --- !u!1 &1370446381484119785
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,8 +327,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -80
-    m_UpperAngle: 80
+    m_LowerAngle: -40
+    m_UpperAngle: 40
 --- !u!70 &1370446381682357311
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1721,14 +1722,16 @@ MonoBehaviour:
   leftLegRBlow: {fileID: 1370446382409614885}
   rightLegRBlow: {fileID: 1370446382059984158}
   Hip: {fileID: 1370446381697412152}
-  MaxSpeed: 15
+  MaxSpeed: 10
   MinSpeed: 0
   deAccelRate: 0
-  speed: 8
-  jumpHeight: 2
+  speed: 5
+  jumpHeight: 500
   legWait: 0.05
   IsFlying: 0
   MouseIsUp: 1
+  IsOnGround: 1
+  jumpDuration: 2
 --- !u!114 &829393444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,8 +1926,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -80
-    m_UpperAngle: 80
+    m_LowerAngle: -40
+    m_UpperAngle: 40
 --- !u!70 &1370446383159075505
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

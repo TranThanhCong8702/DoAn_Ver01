@@ -9,6 +9,7 @@ public class Hooks : MonoBehaviour
     public Rigidbody2D rb;
     public float speed;
     public Movement2 move;
+    public float length = 20;
     private void OnEnable()
     {
         coll.enabled = true;

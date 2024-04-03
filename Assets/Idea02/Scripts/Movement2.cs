@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,8 +26,9 @@ public class Movement2 : MonoBehaviour
     public bool IsFlying;
     public bool MouseIsUp = true;
     public bool IsOnGround = true;
+    public float jumpDuration = 2f;
     Vector2 moveVal;
-    // Start is called before the first frame update
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -51,16 +53,41 @@ public class Movement2 : MonoBehaviour
 
             GameManager.instance.hook.rb.AddForce((Vector3.Normalize((Vector2)t - (Vector2)GameManager.instance.hook.transform.position)) * (GameManager.instance.hook.speed * 100), ForceMode2D.Force);
             //IsFlying = true;
+            if(jumpDuration < 2)
+            {
+                jumpDuration += Time.deltaTime;
+            }
         }
     }
-    // Update is called once per frame
+    void OnRelease(InputValue val)
+    {
+                MouseIsUp = true;
+                GameManager.instance.hook.transform.position = Hip.position;
+                GameManager.instance.hook.DisableJoint();
+                GameManager.instance.hook.gameObject.SetActive(false);
+                GameManager.instance._line.SetPosition(0, Hip.position);
+                GameManager.instance._line.SetPosition(1, Hip.position);
+            Debug.Log("Release");
+    }
+
+    void OnJump(InputValue val)
+    {
+        if(val.isPressed && jumpDuration >= 2)
+        {
+            Hip.velocity = new Vector2(Hip.velocity.x, 0);
+            Hip.AddForce(Vector2.up * (jumpHeight * 1000) * Time.deltaTime);
+            jumpDuration = 0;
+            Debug.Log("Jump");
+        }
+    }
+
     void Update()
     {
         if (!MouseIsUp)
         {
             GameManager.instance._line.SetPosition(0, Hip.position);
             GameManager.instance._line.SetPosition(1, GameManager.instance.hook.transform.position);
-            if (Vector2.Distance(GameManager.instance.hook.transform.position, Hip.position) > 15)
+            if (Vector2.Distance(GameManager.instance.hook.transform.position, Hip.position) > GameManager.instance.hook.length)
             {
                 GameManager.instance.hook.transform.position = Hip.position;
                 GameManager.instance.hook.DisableJoint();
@@ -69,8 +96,6 @@ public class Movement2 : MonoBehaviour
                 GameManager.instance._line.SetPosition(1, Hip.position);
             }
         }
-        else if(!IsFlying)
-        {
             if (moveVal.x != 0)
             {
                 if (moveVal.x < 0)
@@ -84,7 +109,7 @@ public class Movement2 : MonoBehaviour
                     }
                     else
                     {
-                        Hip.velocity = new Vector2(Hip.velocity.x, 0);
+                        Hip.velocity = new Vector2(Hip.velocity.x, Hip.velocity.y);
                     }
                 }
                 else
@@ -99,7 +124,7 @@ public class Movement2 : MonoBehaviour
                     }
                     else
                     {
-                        Hip.velocity = new Vector2(Hip.velocity.x, 0);
+                        Hip.velocity = new Vector2(Hip.velocity.x, Hip.velocity.y);
                     }
                 }
 
@@ -108,42 +133,35 @@ public class Movement2 : MonoBehaviour
             {
                 anim.Play("idle");
             }
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            MouseIsUp = true;
-            GameManager.instance.hook.transform.position = Hip.position;
-            GameManager.instance.hook.DisableJoint();
-            GameManager.instance.hook.gameObject.SetActive(false);
-            GameManager.instance._line.SetPosition(0, Hip.position);
-            GameManager.instance._line.SetPosition(1, Hip.position);
-        }
     }
 
 
     IEnumerator MoveRight(float seconds)
     {
-        if((leftLegRBlow.IsTouchingLayers(LayerMask.GetMask("Ground")) || rightLegRBlow.IsTouchingLayers(LayerMask.GetMask("Ground"))))
-        {
-            //yield return new WaitForSeconds(seconds);
+
             leftLegRB.AddForce(Vector2.right * (speed * 1000) * Time.deltaTime);
             rightLegRB.AddForce(Vector2.left * (speed * 1000) / 2 * Time.deltaTime);
             yield return new WaitForSeconds(seconds);
             rightLegRB.AddForce(Vector2.right * (speed * 1000) * Time.deltaTime);
             leftLegRB.AddForce(Vector2.left * (speed * 1000) / 2 * Time.deltaTime);
+        if (jumpDuration < 2)
+        {
+            jumpDuration += Time.deltaTime;
         }
+
     }
 
     IEnumerator MoveLeft(float seconds)
     {
-        if ((leftLegRBlow.IsTouchingLayers(LayerMask.GetMask("Ground")) || rightLegRBlow.IsTouchingLayers(LayerMask.GetMask("Ground"))))
-        {
-            //yield return new WaitForSeconds(seconds);
+
             rightLegRB.AddForce(Vector2.left * (speed * 1000) * Time.deltaTime);
             leftLegRB.AddForce(Vector2.right * (speed * 1000) / 2 * Time.deltaTime);
             yield return new WaitForSeconds(seconds);
             leftLegRB.AddForce(Vector2.left * (speed * 1000) * Time.deltaTime);
             rightLegRB.AddForce(Vector2.right * (speed * 1000) / 2 * Time.deltaTime);
+        if (jumpDuration < 2)
+        {
+            jumpDuration += Time.deltaTime;
         }
     }
 }
