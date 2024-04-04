@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class IgnoreCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] List<Collider2D> colliders;
     void Start()
     {
-        var colliders = GetComponentsInChildren<Collider2D>();
-        for (int i = 0; i < colliders.Length; i++)
+        for (int i = 0; i < colliders.Count; i++)
         {
-            for(int k = i + 1; k < colliders.Length; k++)
+            for(int k = i + 1; k < colliders.Count; k++)
             {
                 Physics2D.IgnoreCollision(colliders[i], colliders[k]);
             }

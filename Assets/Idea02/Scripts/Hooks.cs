@@ -29,11 +29,5 @@ public class Hooks : MonoBehaviour
         joint.enabled = false;
         coll.enabled = false;
     }
-    private void OnDisable()
-    {
-        if(move.Hip.velocity.y < 0.2f)
-        {
-            move.IsFlying = false;
-        }
-    }
+
 }
