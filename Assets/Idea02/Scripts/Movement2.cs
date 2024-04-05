@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Movement2 : MonoBehaviour
+public class Movement2 : Photon.MonoBehaviour
 {
     [Header("Leg")]
     [SerializeField] Rigidbody2D leftLegRB;
@@ -18,6 +18,15 @@ public class Movement2 : MonoBehaviour
     [SerializeField] Rigidbody2D rightHandRB;
     [SerializeField] Rigidbody2D leftHandRBlow;
     [SerializeField] Rigidbody2D rightHandRBlow;
+
+    [Header("Hook")]
+    [SerializeField] Hooks hook;
+
+    public Camera cam;
+    public LineRenderer _line;
+
+    [Header("Photon")]
+    public PhotonView photonview;
 
     public Rigidbody2D Hip;
     Animator anim;
@@ -43,39 +52,38 @@ public class Movement2 : MonoBehaviour
     }
     void OnMove(InputValue value)
     {
-        moveVal = value.Get<Vector2>();
-        Debug.Log(moveVal);
+            moveVal = value.Get<Vector2>();
+            Debug.Log(moveVal);
     }
-
     void OnFire(InputValue val)
     {
-        if (val.isPressed)
+        if (val.isPressed && photonview.isMine)
         {
-            MouseIsUp = false;
-            GameManager.instance.hook.gameObject.SetActive(true);
-            var t = GameManager.instance.cam.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 distanceVector = t - GameManager.instance.hook.transform.position;
+                MouseIsUp = false;
+                hook.gameObject.SetActive(true);
+                var t = cam.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 distanceVector = t - hook.transform.position;
 
-            float angle = -Mathf.Atan2(distanceVector.x, distanceVector.y) * Mathf.Rad2Deg;
-            GameManager.instance.hook.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                float angle = -Mathf.Atan2(distanceVector.x, distanceVector.y) * Mathf.Rad2Deg;
+                hook.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            GameManager.instance.hook.rb.AddForce((Vector3.Normalize((Vector2)t - (Vector2)GameManager.instance.hook.transform.position)) * (GameManager.instance.hook.speed * 100), ForceMode2D.Force);
-            //IsFlying = true;
+                hook.rb.AddForce((Vector3.Normalize((Vector2)t - (Vector2)hook.transform.position)) * (hook.speed * 100), ForceMode2D.Force);
+                //IsFlying = true;
         }
     }
     void OnRelease(InputValue val)
     {
-        MouseIsUp = true;
-        GameManager.instance.hook.transform.position = Hip.position;
-        GameManager.instance.hook.DisableJoint();
-        GameManager.instance.hook.gameObject.SetActive(false);
-        GameManager.instance._line.SetPosition(0, Hip.position);
-        GameManager.instance._line.SetPosition(1, Hip.position);
+            MouseIsUp = true;
+            hook.transform.position = Hip.position;
+            hook.DisableJoint();
+            hook.gameObject.SetActive(false);
+            _line.SetPosition(0, Hip.position);
+            _line.SetPosition(1, Hip.position);
     }
 
     void OnJump(InputValue val)
     {
-        if (val.isPressed && jumpDuration >= 2)
+        if (val.isPressed && jumpDuration >= 2 && photonview.isMine)
         {
             Hip.velocity = new Vector2(Hip.velocity.x, 0);
             //Hip.velocity = new  Vector2(Hip.velocity.x,(jumpHeight));
@@ -95,27 +103,29 @@ public class Movement2 : MonoBehaviour
 
     void Update()
     {
+        if (!photonview.isMine) return;
         if (jumpDuration < 2)
         {
             jumpDuration += Time.deltaTime;
         }
         if (!MouseIsUp)
         {
-            GameManager.instance._line.SetPosition(0, Hip.position);
-            GameManager.instance._line.SetPosition(1, GameManager.instance.hook.transform.position);
-            if (Vector2.Distance(GameManager.instance.hook.transform.position, Hip.position) > GameManager.instance.hook.length)
+            _line.SetPosition(0, Hip.position);
+            _line.SetPosition(1, hook.transform.position);
+            if (Vector2.Distance(hook.transform.position, Hip.position) > hook.length)
             {
-                GameManager.instance.hook.transform.position = Hip.position;
-                GameManager.instance.hook.DisableJoint();
-                GameManager.instance.hook.gameObject.SetActive(false);
-                GameManager.instance._line.SetPosition(0, Hip.position);
-                GameManager.instance._line.SetPosition(1, Hip.position);
+                hook.transform.position = Hip.position;
+                hook.DisableJoint();
+                hook.gameObject.SetActive(false);
+                _line.SetPosition(0, Hip.position);
+                _line.SetPosition(1, Hip.position);
             }
         }
     }
     void FixedUpdate()
     {
-        if(moveVal != Vector2.zero)
+        if (!photonview.isMine) return;
+        if (moveVal != Vector2.zero)
         {
             HandController();
             if (moveVal.x != 0)
@@ -157,10 +167,7 @@ public class Movement2 : MonoBehaviour
                 {
                     //if (IsFlying) return;
                     anim.Play("Down");
-                    //if (Hip.velocity.y > 1f)
-                    //{
-                    //    Hip.AddForce(Vector2.down * jumpHeight * 100);
-                    //}
+                    Hip.AddForce(Vector2.down * jumpHeight * 100);
                 }
             }
         }
