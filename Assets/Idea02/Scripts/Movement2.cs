@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Movement2 : Photon.MonoBehaviour
+public class Movement2 : MonoBehaviour
 {
     [Header("Leg")]
     [SerializeField] Rigidbody2D leftLegRB;
@@ -22,11 +22,8 @@ public class Movement2 : Photon.MonoBehaviour
     [Header("Hook")]
     [SerializeField] Hooks hook;
 
-    public Camera cam;
+    //public Camera cam;
     public LineRenderer _line;
-
-    [Header("Photon")]
-    public PhotonView photonview;
 
     public Rigidbody2D Hip;
     Animator anim;
@@ -52,38 +49,36 @@ public class Movement2 : Photon.MonoBehaviour
     }
     void OnMove(InputValue value)
     {
-            moveVal = value.Get<Vector2>();
-            Debug.Log(moveVal);
+        moveVal = value.Get<Vector2>();
+        Debug.Log(moveVal);
     }
     void OnFire(InputValue val)
     {
-        if (val.isPressed && photonview.isMine)
-        {
-                MouseIsUp = false;
-                hook.gameObject.SetActive(true);
-                var t = cam.ScreenToWorldPoint(Input.mousePosition);
-                Vector3 distanceVector = t - hook.transform.position;
 
-                float angle = -Mathf.Atan2(distanceVector.x, distanceVector.y) * Mathf.Rad2Deg;
-                hook.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        MouseIsUp = false;
+        hook.gameObject.SetActive(true);
+        //var t = GameManager.instance.cam.ScreenToWorldPoint(Input.mousePosition);
+        //Vector3 distanceVector = t - hook.transform.position;
 
-                hook.rb.AddForce((Vector3.Normalize((Vector2)t - (Vector2)hook.transform.position)) * (hook.speed * 100), ForceMode2D.Force);
-                //IsFlying = true;
-        }
+        //float angle = -Mathf.Atan2(distanceVector.x, distanceVector.y) * Mathf.Rad2Deg;
+        //hook.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        hook.rb.AddForce(/*(Vector3.Normalize((Vector2)t - (Vector2)hook.transform.position))*/Vector2.up * (hook.speed * 100), ForceMode2D.Force);
+        //IsFlying = true;
     }
     void OnRelease(InputValue val)
     {
-            MouseIsUp = true;
-            hook.transform.position = Hip.position;
-            hook.DisableJoint();
-            hook.gameObject.SetActive(false);
-            _line.SetPosition(0, Hip.position);
-            _line.SetPosition(1, Hip.position);
+        MouseIsUp = true;
+        hook.transform.position = Hip.position;
+        hook.DisableJoint();
+        hook.gameObject.SetActive(false);
+        _line.SetPosition(0, Hip.position);
+        _line.SetPosition(1, Hip.position);
     }
 
     void OnJump(InputValue val)
     {
-        if (val.isPressed && jumpDuration >= 2 && photonview.isMine)
+        if (val.isPressed && jumpDuration >= 2)
         {
             Hip.velocity = new Vector2(Hip.velocity.x, 0);
             //Hip.velocity = new  Vector2(Hip.velocity.x,(jumpHeight));
@@ -103,7 +98,6 @@ public class Movement2 : Photon.MonoBehaviour
 
     void Update()
     {
-        if (!photonview.isMine) return;
         if (jumpDuration < 2)
         {
             jumpDuration += Time.deltaTime;
@@ -124,7 +118,6 @@ public class Movement2 : Photon.MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!photonview.isMine) return;
         if (moveVal != Vector2.zero)
         {
             HandController();
