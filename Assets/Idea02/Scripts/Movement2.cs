@@ -18,6 +18,7 @@ public class Movement2 : MonoBehaviour
     [SerializeField] Rigidbody2D rightHandRB;
     [SerializeField] Rigidbody2D leftHandRBlow;
     [SerializeField] Rigidbody2D rightHandRBlow;
+    [SerializeField] float handForce = 1000f;
 
     [Header("Hook")]
     [SerializeField] Hooks hook;
@@ -37,10 +38,11 @@ public class Movement2 : MonoBehaviour
     [SerializeField] float jumpHeight = 2f;
     [SerializeField] float legWait = .5f;
 
+    public bool IsShooting;
     public bool IsFlying;
     public bool MouseIsUp = true;
     public bool IsOnGround = true;
-    public float jumpDuration = 2f;
+    //public float jumpDuration = 2f;
     Vector2 moveVal;
 
     void Start()
@@ -63,56 +65,52 @@ public class Movement2 : MonoBehaviour
         //float angle = -Mathf.Atan2(distanceVector.x, distanceVector.y) * Mathf.Rad2Deg;
         //hook.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        hook.rb.AddForce(/*(Vector3.Normalize((Vector2)t - (Vector2)hook.transform.position))*/Vector2.up * (hook.speed * 100), ForceMode2D.Force);
+        hook.rb.AddForce(/*(Vector3.Normalize((Vector2)t - (Vector2)hook.transform.position))*/hook.transform.parent.up * (hook.speed * 100), ForceMode2D.Force);
         //IsFlying = true;
     }
     void OnRelease(InputValue val)
     {
-        MouseIsUp = true;
-        hook.transform.position = Hip.position;
+        if (IsShooting)
+        {
+            IsShooting = false;
+        }
+        hook.transform.position = leftHandRBlow.position;
         hook.DisableJoint();
         hook.gameObject.SetActive(false);
-        _line.SetPosition(0, Hip.position);
-        _line.SetPosition(1, Hip.position);
+        _line.SetPosition(0, leftHandRBlow.position);
+        _line.SetPosition(1, leftHandRBlow.position);
     }
 
     void OnJump(InputValue val)
     {
-        if (val.isPressed && jumpDuration >= 2)
+        if (val.isPressed)
         {
-            Hip.velocity = new Vector2(Hip.velocity.x, 0);
-            //Hip.velocity = new  Vector2(Hip.velocity.x,(jumpHeight));
-            Hip.MovePosition(Hip.position + new Vector2(0, jumpHeight));
-            jumpDuration = 0;
+            IsShooting= true;
         }
     }
 
     void HandController()
     {
         float angle = -Mathf.Atan2(moveVal.x, moveVal.y) * Mathf.Rad2Deg;
-        leftHandRBlow.MoveRotation(angle);
-        rightHandRBlow.MoveRotation(angle);
-        leftHandRB.MoveRotation(angle);
-        rightHandRB.MoveRotation(angle);
+        leftHandRBlow.MoveRotation(Mathf.LerpAngle(leftHandRBlow.rotation, angle, handForce * Time.deltaTime));
+        rightHandRBlow.MoveRotation(Mathf.LerpAngle(leftHandRBlow.rotation, angle, handForce * Time.deltaTime));
+        leftHandRB.MoveRotation(Mathf.LerpAngle(leftHandRBlow.rotation, angle, handForce * Time.deltaTime));
+        rightHandRB.MoveRotation(Mathf.LerpAngle(leftHandRBlow.rotation, angle, handForce * Time.deltaTime));
     }
 
     void Update()
     {
-        if (jumpDuration < 2)
-        {
-            jumpDuration += Time.deltaTime;
-        }
         if (!MouseIsUp)
         {
-            _line.SetPosition(0, Hip.position);
+            _line.SetPosition(0, leftHandRBlow.position);
             _line.SetPosition(1, hook.transform.position);
-            if (Vector2.Distance(hook.transform.position, Hip.position) > hook.length)
+            if (Vector2.Distance(hook.transform.position, leftHandRBlow.position) > hook.length)
             {
-                hook.transform.position = Hip.position;
+                hook.transform.position = leftHandRBlow.position;
                 hook.DisableJoint();
                 hook.gameObject.SetActive(false);
-                _line.SetPosition(0, Hip.position);
-                _line.SetPosition(1, Hip.position);
+                _line.SetPosition(0, leftHandRBlow.position);
+                _line.SetPosition(1, leftHandRBlow.position);
             }
         }
     }
