@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
-                    "type": "Value",
-                    "id": "ec3be45e-0af1-4439-875e-c6cd7bb05a87",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Fire",
                     "type": "Button",
                     "id": "57db1b0e-a703-4e40-b5fe-2915f0c56b9a",
@@ -45,6 +36,15 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "13012bf9-118f-486d-8751-5dc13fbfabeb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Stop",
+                    "type": "Button",
+                    "id": "b5779332-36c4-4936-883a-79b897ab042f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -142,39 +142,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8c8e490b-c610-4785-884f-f04217b23ca4",
-                    "path": "<Pointer>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse;Touch",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3e5f5442-8668-4b27-a940-df99bad7e831",
-                    "path": "<Joystick>/{Hatswitch}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
@@ -241,23 +208,34 @@
                 },
                 {
                     "name": "",
-                    "id": "b40c17bd-ace1-4870-b555-0dbf6fb181b7",
+                    "id": "5156f5d0-5eaf-4b18-a1a4-72f60a0227fb",
                     "path": "<Keyboard>/g",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Release",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "5156f5d0-5eaf-4b18-a1a4-72f60a0227fb",
-                    "path": "<Keyboard>/g",
-                    "interactions": "",
+                    "id": "74689947-1ed1-4742-8659-440537532d91",
+                    "path": "<Keyboard>/h",
+                    "interactions": "Hold",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
+                    "groups": "",
+                    "action": "Stop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0c221fd8-3e8b-4bf5-9465-7ff9453e2733",
+                    "path": "<Keyboard>/h",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

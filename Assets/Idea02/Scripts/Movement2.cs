@@ -38,6 +38,9 @@ public class Movement2 : MonoBehaviour
     [SerializeField] float jumpHeight = 2f;
     [SerializeField] float legWait = .5f;
 
+    [Header("Player's State")]
+    [SerializeField] BulletSapwner bulletspawner;
+    public bool NotMoving;
     public bool IsShooting;
     public bool IsFlying;
     public bool MouseIsUp = true;
@@ -70,10 +73,6 @@ public class Movement2 : MonoBehaviour
     }
     void OnRelease(InputValue val)
     {
-        if (IsShooting)
-        {
-            IsShooting = false;
-        }
         hook.transform.position = leftHandRBlow.position;
         hook.DisableJoint();
         hook.gameObject.SetActive(false);
@@ -85,10 +84,21 @@ public class Movement2 : MonoBehaviour
     {
         if (val.isPressed)
         {
-            IsShooting= true;
+            //IsShooting= true;
+            bulletspawner.Shooting();
         }
     }
-
+    void OnStop(InputValue val)
+    {
+        if (NotMoving)
+        {
+            NotMoving = false;
+        }
+        else
+        {
+            NotMoving = true;
+        }
+    }
     void HandController()
     {
         float angle = -Mathf.Atan2(moveVal.x, moveVal.y) * Mathf.Rad2Deg;
@@ -119,6 +129,11 @@ public class Movement2 : MonoBehaviour
         if (moveVal != Vector2.zero)
         {
             HandController();
+            if (NotMoving)
+            {
+                anim.Play("Down");
+                return;
+            }
             if (moveVal.x != 0)
             {
                 if (moveVal.x < 0)
@@ -157,7 +172,6 @@ public class Movement2 : MonoBehaviour
                 if (moveVal.y < 0)
                 {
                     //if (IsFlying) return;
-                    anim.Play("Down");
                     Hip.AddForce(Vector2.down * jumpHeight * 100);
                 }
             }
