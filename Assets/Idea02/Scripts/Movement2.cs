@@ -40,9 +40,10 @@ public class Movement2 : MonoBehaviour
 
     [Header("Player's State")]
     [SerializeField] BulletSapwner bulletspawner;
+    [SerializeField] Playermanager playermanager;
     public bool NotMoving;
     public bool IsShooting;
-    public bool IsFlying;
+    public bool IsCCed;
     public bool MouseIsUp = true;
     public bool IsOnGround = true;
     //public float jumpDuration = 2f;
@@ -69,7 +70,7 @@ public class Movement2 : MonoBehaviour
         //hook.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         hook.rb.AddForce(/*(Vector3.Normalize((Vector2)t - (Vector2)hook.transform.position))*/hook.transform.parent.up * (hook.speed * 100), ForceMode2D.Force);
-        //IsFlying = true;
+
     }
     void OnRelease(InputValue val)
     {
@@ -82,10 +83,11 @@ public class Movement2 : MonoBehaviour
 
     void OnJump(InputValue val)
     {
-        if (val.isPressed)
+        if (val.isPressed && playermanager.ManaBarVal > 0)
         {
             //IsShooting= true;
             bulletspawner.Shooting();
+            playermanager.ManaDes();
         }
     }
     void OnStop(InputValue val)
@@ -110,6 +112,7 @@ public class Movement2 : MonoBehaviour
 
     void Update()
     {
+        if (IsCCed) return;
         if (!MouseIsUp)
         {
             _line.SetPosition(0, leftHandRBlow.position);
@@ -126,19 +129,20 @@ public class Movement2 : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (IsCCed) return;
+        if (NotMoving)
+        {
+            HandController();
+            anim.Play("Down");
+            return;
+        }
         if (moveVal != Vector2.zero)
         {
             HandController();
-            if (NotMoving)
-            {
-                anim.Play("Down");
-                return;
-            }
             if (moveVal.x != 0)
             {
                 if (moveVal.x < 0)
                 {
-                    //if (IsFlying) return;
                     anim.Play("WalkLeft");
                     StartCoroutine(MoveLeft(legWait));
                     if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
@@ -152,7 +156,6 @@ public class Movement2 : MonoBehaviour
                 }
                 else
                 {
-                    //if (IsFlying) return;
                     anim.Play("WalkRight");
                     StartCoroutine(MoveRight(legWait));
                     //Hip.velocity = new Vector2(Hip.velocity.x, 0);
@@ -171,7 +174,6 @@ public class Movement2 : MonoBehaviour
             {
                 if (moveVal.y < 0)
                 {
-                    //if (IsFlying) return;
                     Hip.AddForce(Vector2.down * jumpHeight * 100);
                 }
             }

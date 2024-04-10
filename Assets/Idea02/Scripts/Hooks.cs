@@ -20,7 +20,6 @@ public class Hooks : MonoBehaviour
         {
             rb.bodyType = RigidbodyType2D.Static;
             joint.enabled = true;
-            move.IsFlying = true;
         }
     }
     public void DisableJoint()

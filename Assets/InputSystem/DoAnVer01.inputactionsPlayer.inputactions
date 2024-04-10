@@ -154,7 +154,7 @@
                 {
                     "name": "",
                     "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -198,7 +198,7 @@
                 {
                     "name": "",
                     "id": "c493407c-4617-4d75-b794-a8b0eb0d5cc7",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -209,7 +209,7 @@
                 {
                     "name": "",
                     "id": "5156f5d0-5eaf-4b18-a1a4-72f60a0227fb",
-                    "path": "<Keyboard>/g",
+                    "path": "<Keyboard>/f",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -221,18 +221,7 @@
                     "name": "",
                     "id": "74689947-1ed1-4742-8659-440537532d91",
                     "path": "<Keyboard>/h",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Stop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0c221fd8-3e8b-4bf5-9465-7ff9453e2733",
-                    "path": "<Keyboard>/h",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Stop",
