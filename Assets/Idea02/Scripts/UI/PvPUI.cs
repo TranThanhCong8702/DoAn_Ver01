@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class PvPUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void PlayPvp()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        UIController.instance.inGameUI.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

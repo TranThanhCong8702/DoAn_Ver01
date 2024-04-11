@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class InGameUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ExitToMain()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        UIController.instance.mainUI.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

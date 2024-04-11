@@ -21,6 +21,7 @@ public class MainUI : MonoBehaviour
     {
         UIController.instance.settingUI.gameObject.SetActive(false);
         UIController.instance.pvPUI.gameObject.SetActive(true);
+        //UIController.instance.inGameUI.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
     public void StoryMode()
