@@ -60,26 +60,28 @@ public class Movement2 : MonoBehaviour
     }
     void OnFire(InputValue val)
     {
+        if (MouseIsUp)
+        {
+            MouseIsUp = false;
+            hook.gameObject.SetActive(true);
+            hook.rb.AddForce(hook.transform.parent.up * (hook.speed * 100), ForceMode2D.Force);
 
-        MouseIsUp = false;
-        hook.gameObject.SetActive(true);
-        //var t = GameManager.instance.cam.ScreenToWorldPoint(Input.mousePosition);
-        //Vector3 distanceVector = t - hook.transform.position;
-
-        //float angle = -Mathf.Atan2(distanceVector.x, distanceVector.y) * Mathf.Rad2Deg;
-        //hook.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        hook.rb.AddForce(/*(Vector3.Normalize((Vector2)t - (Vector2)hook.transform.position))*/hook.transform.parent.up * (hook.speed * 100), ForceMode2D.Force);
+        }
+        else
+        {
+            hook.transform.position = leftHandRBlow.position;
+            hook.DisableJoint();
+            hook.gameObject.SetActive(false);
+            _line.SetPosition(0, leftHandRBlow.position);
+            _line.SetPosition(1, leftHandRBlow.position);
+            MouseIsUp = true;
+        }
 
     }
-    void OnRelease(InputValue val)
-    {
-        hook.transform.position = leftHandRBlow.position;
-        hook.DisableJoint();
-        hook.gameObject.SetActive(false);
-        _line.SetPosition(0, leftHandRBlow.position);
-        _line.SetPosition(1, leftHandRBlow.position);
-    }
+    //void OnRelease(InputValue val)
+    //{
+
+    //}
 
     void OnJump(InputValue val)
     {
@@ -174,6 +176,7 @@ public class Movement2 : MonoBehaviour
             {
                 if (moveVal.y < 0)
                 {
+                    if(Hip.velocity.y > 0) { Hip.velocity = new Vector2(Hip.velocity.x, 0); }
                     Hip.AddForce(Vector2.down * jumpHeight * 100);
                 }
             }

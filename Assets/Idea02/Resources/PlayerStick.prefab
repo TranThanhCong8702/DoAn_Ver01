@@ -1189,7 +1189,7 @@ GameObject:
   - component: {fileID: 1370446381697412134}
   - component: {fileID: 1370446381697412153}
   - component: {fileID: 1655869195}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1342,7 +1342,7 @@ GameObject:
   - component: {fileID: 1370446381925504700}
   - component: {fileID: 1370446381925504703}
   - component: {fileID: 1483483576}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lower Right Arm
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 1370446382271009933}
   - component: {fileID: 1370446382271009932}
   - component: {fileID: 785400272}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lower Left Arm
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2052,7 +2052,7 @@ GameObject:
   - component: {fileID: 1370446382469691494}
   - component: {fileID: 1370446382469691513}
   - component: {fileID: 1325035807}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hip
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2229,7 +2229,7 @@ GameObject:
   - component: {fileID: 1370446382544184670}
   - component: {fileID: 1370446382544184657}
   - component: {fileID: 31075274}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Upper Right Arm
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2392,7 +2392,7 @@ GameObject:
   - component: {fileID: 1370446382851976831}
   - component: {fileID: 1370446382851976830}
   - component: {fileID: 1594030925}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2964,7 +2964,7 @@ GameObject:
   - component: {fileID: 1370446383177580193}
   - component: {fileID: 1370446383177580192}
   - component: {fileID: 1653122850}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Upper Left Arm
   m_TagString: Player
   m_Icon: {fileID: 0}
