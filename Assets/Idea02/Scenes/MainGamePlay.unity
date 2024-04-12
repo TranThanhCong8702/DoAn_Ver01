@@ -445,7 +445,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1183409400}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &103070366
 GameObject:
@@ -4305,6 +4305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 918392190}
   - component: {fileID: 918392189}
+  - component: {fileID: 918392191}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4338,9 +4339,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1183409400}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &918392191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918392188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f583a7d31214450469f08ff9f25ae62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 1845508827}
 --- !u!1 &929234712
 GameObject:
   m_ObjectHideFlags: 0
@@ -5300,7 +5314,6 @@ Transform:
   - {fileID: 704205801}
   - {fileID: 1267975035}
   - {fileID: 340931172}
-  - {fileID: 918392190}
   - {fileID: 78940645}
   m_Father: {fileID: 1981293871}
   m_RootOrder: 0
@@ -9366,7 +9379,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 918392191}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: ChangeValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1849958452
 GameObject:
   m_ObjectHideFlags: 0
@@ -10464,7 +10489,7 @@ Transform:
   - {fileID: 1370446382490282601}
   - {fileID: 326609425}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2014220763
 GameObject:
