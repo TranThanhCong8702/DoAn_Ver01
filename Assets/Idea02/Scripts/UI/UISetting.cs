@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class UISetting : MonoBehaviour
 {
-    public List<InputActionReference> MoveRef;
+    //public List<InputActionReference> MoveRef;
     private void Start()
     {
         
@@ -18,17 +18,17 @@ public class UISetting : MonoBehaviour
     }
     private void OnEnable()
     {
-        foreach (var action in MoveRef)
-        {
-            action.action.Disable();
-        }
+        //foreach (var action in MoveRef)
+        //{
+        //    action.action.Disable();
+        //}
     }
     private void OnDisable()
     {
-        foreach (var action in MoveRef)
-        {
-            action.action.Enable();
-        }
+        //foreach (var action in MoveRef)
+        //{
+        //    action.action.Enable();
+        //}
     }
     //[Header("Rebinding Keys")]
     //public InputActionAsset actions;

@@ -89,7 +89,6 @@ public class Movement2 : MonoBehaviour
         {
             //IsShooting= true;
             bulletspawner.Shooting();
-            playermanager.ManaDes();
         }
     }
     void OnStop(InputValue val)

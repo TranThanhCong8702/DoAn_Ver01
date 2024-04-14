@@ -32,14 +32,14 @@ public class Playermanager : MonoBehaviour
         ManaBarVal = ManaBarmax;
         ManaBar.fillAmount = ManaBarVal / ManaBarmax;
     }
-    public void HpDes()
+    public void HpDes(int dame)
     {
-        HPvalue -= 1;
+        HPvalue -= dame;
         HPslider.fillAmount = HPvalue / HPmax;
     }
-    public void ManaDes()
+    public void ManaDes(int manaCost)
     {
-        ManaBarVal-= 1;
+        ManaBarVal-= manaCost;
         ManaBar.fillAmount = ManaBarVal/ManaBarmax;
     }
     private void Update()

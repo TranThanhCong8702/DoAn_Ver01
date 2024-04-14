@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Weapons : MonoBehaviour
 {
+    public int Damage = 1;
+    public int ManaCost = 1;
     [SerializeField] protected float speed = 10;
     [SerializeField] protected float WaitTime = 0.2f;
     [SerializeField] protected Rigidbody2D rb;

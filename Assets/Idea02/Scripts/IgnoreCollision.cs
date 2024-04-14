@@ -16,11 +16,4 @@ public class IgnoreCollision : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag == "Player")
-        {
-            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), coll.gameObject.GetComponent<Collider2D>());
-        }
-    }
 }

@@ -8,11 +8,12 @@ public class PlayerDameReciever : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        var t = collision.GetComponent<Weapons>();
         if (collision.CompareTag("Missile"))
         {
-            if(managre)
+            if(managre && t)
             {
-                managre.HpDes();
+                managre.HpDes(t.Damage);
             }
         }
     }

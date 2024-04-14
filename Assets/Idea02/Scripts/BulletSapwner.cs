@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletSapwner : MonoBehaviour
 {
     [SerializeField] Movement2 move;
+    [SerializeField] Playermanager playermanager;
     //void Start()
     //{
     //    StartCoroutine(Shoot());
@@ -32,5 +33,6 @@ public class BulletSapwner : MonoBehaviour
         bullet.transform.rotation = transform.parent.rotation;
         //bullet.transform.localScale = Vector3.one * 0.5f;
         bullet.SetActive(true);
+        playermanager.ManaDes(bullet.GetComponent<Weapons>().ManaCost);
     }
 }
