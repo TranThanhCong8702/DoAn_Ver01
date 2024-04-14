@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Weapons : MonoBehaviour
 {
     public int Damage = 1;
-    public int ManaCost = 1;
-    [SerializeField] protected float speed = 10;
     [SerializeField] protected float WaitTime = 0.2f;
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] protected float ingameScale = 0.2f;
@@ -15,58 +14,40 @@ public class Weapons : MonoBehaviour
     [SerializeField] protected Collider2D col;
     [SerializeField] protected ParticleSystem paticle;
     [SerializeField] protected AudioSource audioSource;
+    public FixedJoint2D joint;
     [SerializeField] float maxSize = 5f;
     bool demFlag;
 
     protected void Start()
     {
-        transform.localScale = Vector3.one * ingameScale;
-        rb.AddForce(/*new Vector2(speed, 0)*/transform.right * speed);
-        if (rb.velocity.x < 0.5f || rb.velocity.y < 0.5f)
-        {
-            //ObjectPool.instance.Return(gameObject, true);
-            rb.AddForce(/*new Vector2(speed, 0)*/transform.right * speed);
-        }
+
     }
 
     private void FixedUpdate()
     {
-        if (transform.localScale.x < (Vector3.one * maxSize).x && transform.localScale.y < (Vector3.one * maxSize).y)
-        {
-            transform.localScale += Vector3.one * Time.deltaTime;
-        }
+        //if (transform.localScale.x < (Vector3.one * maxSize).x && transform.localScale.y < (Vector3.one * maxSize).y)
+        //{
+        //    transform.localScale += Vector3.one * Time.deltaTime;
+        //}
     }
 
     protected void OnEnable()
     {
         transform.localScale = Vector3.one * ingameScale;
-        rb.AddForce(/*new Vector2(speed, 0)*/transform.right * speed);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         if (collision.transform.CompareTag("Player"))
         {
-            rb.velocity = Vector2.zero;
-            Explode();
-        }
-        else if (collision.transform.CompareTag("Missile"))
-        {
-            if(rb.velocity == Vector2.zero && !demFlag)
-            {
-                demFlag = true;
-                rb.velocity = collision.attachedRigidbody.velocity;
-                StartCoroutine(DelayEx());
-            }
-            else
-            {
-                Explode();
-            }
-
-        }
-        else if (collision.transform.CompareTag("Ground"))
-        {
-            rb.velocity = Vector2.zero;
+            col.isTrigger = true;
+            joint.enabled = true;
+            joint.connectedBody = collision.rigidbody;
+            StartCoroutine(DelayEx());
         }
     }
 
@@ -98,8 +79,8 @@ public class Weapons : MonoBehaviour
     private void OnDisable()
     {
         spriteRenderer.enabled = true;
-        col.enabled = true;
-        transform.rotation = Quaternion.Euler(Vector3.zero);
-        demFlag = false;
+        col.isTrigger = true;
+        joint.enabled = false;
+        joint.connectedBody = null ;
     }
 }

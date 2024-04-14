@@ -24,12 +24,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22306682}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 1.51, z: 0}
-  m_LocalScale: {x: 2, y: 0.2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2046975486}
+  m_Father: {fileID: 1370446381925504702}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &22306684
@@ -255,7 +255,7 @@ Transform:
   m_Children:
   - {fileID: 329662681}
   m_Father: {fileID: 1370446382881669576}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &904085260
 GameObject:
@@ -603,7 +603,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1370446382881669576}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &2043943003
 LineRenderer:
@@ -704,38 +704,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!1 &2046975485
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2046975486}
-  m_Layer: 8
-  m_Name: WeaponContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2046975486
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046975485}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 22306683}
-  m_Father: {fileID: 1370446382881669576}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2101989321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +1158,8 @@ GameObject:
   - component: {fileID: 1370446381925504700}
   - component: {fileID: 1370446381925504703}
   - component: {fileID: 1483483576}
+  - component: {fileID: 2336191551702791038}
+  - component: {fileID: 8043957941945674222}
   m_Layer: 7
   m_Name: Lower Right Arm
   m_TagString: Player
@@ -1208,7 +1178,8 @@ Transform:
   m_LocalPosition: {x: 0.278, y: 1.54, z: 0}
   m_LocalScale: {x: 1.2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 22306683}
   m_Father: {fileID: 1370446382881669576}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.153}
@@ -1276,7 +1247,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.1
@@ -1338,6 +1309,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managre: {fileID: 1427615195}
+--- !u!255 &2336191551702791038
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370446381925504689}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0.139, y: 0.77}
+  m_DampingRatio: 0
+  m_Frequency: 0
+--- !u!114 &8043957941945674222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370446381925504689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5bf62dedad1b6c49932c0ed2377ed19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fix: {fileID: 2336191551702791038}
+  rb: {fileID: 1370446381925504701}
+  playermanager: {fileID: 1427615195}
 --- !u!1 &1370446382059984146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,7 +1356,6 @@ GameObject:
   - component: {fileID: 1370446382059984145}
   - component: {fileID: 1370446382059984144}
   - component: {fileID: 1370446382059984147}
-  - component: {fileID: 612364823}
   - component: {fileID: 1536176974}
   m_Layer: 7
   m_Name: Lower Right Leg
@@ -1504,19 +1507,6 @@ MonoBehaviour:
   targetRotation: 0
   rb: {fileID: 0}
   force: 150
---- !u!114 &612364823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370446382059984146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a35da176eeef40440b9c1611d9e54398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: {fileID: 2109985765}
 --- !u!114 &1536176974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1631,7 +1621,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.1
@@ -1707,7 +1697,6 @@ GameObject:
   - component: {fileID: 1370446382409614884}
   - component: {fileID: 1370446382409614887}
   - component: {fileID: 1370446382409614886}
-  - component: {fileID: 1905656707}
   - component: {fileID: 834437292}
   m_Layer: 7
   m_Name: Lower Left Leg
@@ -1859,19 +1848,6 @@ MonoBehaviour:
   targetRotation: 0
   rb: {fileID: 0}
   force: 150
---- !u!114 &1905656707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370446382409614905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a35da176eeef40440b9c1611d9e54398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: {fileID: 2109985765}
 --- !u!114 &834437292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2163,7 +2139,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.1
@@ -2445,7 +2421,6 @@ Transform:
   - {fileID: 1370446381925504702}
   - {fileID: 1370446383150594848}
   - {fileID: 1370446381484119766}
-  - {fileID: 2046975486}
   - {fileID: 3338834836650023736}
   - {fileID: 2043943002}
   - {fileID: 556680449}
@@ -2498,7 +2473,6 @@ MonoBehaviour:
   - {fileID: 1370446382059984144}
   - {fileID: 1370446381682357311}
   - {fileID: 1370446382409614887}
-  - {fileID: 0}
 --- !u!114 &2109985765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2531,11 +2505,10 @@ MonoBehaviour:
   legWait: 0.05
   bulletspawner: {fileID: 22306684}
   playermanager: {fileID: 1427615195}
-  NotMoving: 0
-  IsShooting: 0
+  bombhand: {fileID: 8043957941945674222}
+  hasBomb: 1
   IsCCed: 0
   MouseIsUp: 1
-  IsOnGround: 1
 --- !u!114 &829393444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,7 +2534,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
@@ -2582,11 +2555,14 @@ MonoBehaviour:
   followTarget: {fileID: 1370446382851976817}
   HPslider: {fileID: 1337869532}
   HPvalue: 0
-  HPmax: 10
+  HPmax: 50
   ManaBar: {fileID: 2101989323}
-  ManaBarmax: 20
-  ManaBarVal: 0
-  cooldownTime: 2
+  ManaBarmax: 1
+  ManaBarVal: 1
+  bulletspawner: {fileID: 22306684}
+  move: {fileID: 2109985765}
+  hand: {fileID: 8043957941945674222}
+  waitToBombTime: 0
 --- !u!1 &1370446383150594851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,7 +2874,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.1
@@ -2991,7 +2967,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1370446382881669576}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1591980173688305110
 Camera:

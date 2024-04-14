@@ -41,11 +41,12 @@ public class Movement2 : MonoBehaviour
     [Header("Player's State")]
     [SerializeField] BulletSapwner bulletspawner;
     [SerializeField] Playermanager playermanager;
-    public bool NotMoving;
-    public bool IsShooting;
+    [SerializeField] PlayerBomb_Hand bombhand;
+    public bool hasBomb = true;
+
+    [Header("Other State")]
     public bool IsCCed;
     public bool MouseIsUp = true;
-    public bool IsOnGround = true;
     //public float jumpDuration = 2f;
     Vector2 moveVal;
 
@@ -85,21 +86,12 @@ public class Movement2 : MonoBehaviour
 
     void OnJump(InputValue val)
     {
-        if (val.isPressed && playermanager.ManaBarVal > 0)
+        if (val.isPressed && hasBomb)
         {
             //IsShooting= true;
-            bulletspawner.Shooting();
-        }
-    }
-    void OnStop(InputValue val)
-    {
-        if (NotMoving)
-        {
-            NotMoving = false;
-        }
-        else
-        {
-            NotMoving = true;
+            bombhand.Throw();
+            hasBomb = false;
+            playermanager.ManaBarVal = 0;
         }
     }
     void HandController()
@@ -131,12 +123,6 @@ public class Movement2 : MonoBehaviour
     void FixedUpdate()
     {
         if (IsCCed) return;
-        if (NotMoving)
-        {
-            HandController();
-            anim.Play("Down");
-            return;
-        }
         if (moveVal != Vector2.zero)
         {
             HandController();

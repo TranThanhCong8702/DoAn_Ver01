@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IgnoreCollision : MonoBehaviour
 {
-    [SerializeField] List<Collider2D> colliders;
+    public List<Collider2D> colliders;
     void Start()
     {
         for (int i = 0; i < colliders.Count; i++)
