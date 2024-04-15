@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2148257445144576694}
   m_Layer: 0
   m_Name: bullets
-  m_TagString: Missile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
-  WaitTime: 0.3
+  WaitTime: 1
   rb: {fileID: 6654971608655186935}
   ingameScale: 1
   spriteRenderer: {fileID: 6654971608655186930}

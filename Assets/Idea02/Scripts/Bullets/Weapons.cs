@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Weapons : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class Weapons : MonoBehaviour
             col.isTrigger = true;
             joint.enabled = true;
             joint.connectedBody = collision.rigidbody;
+            joint.enableCollision = true;
             StartCoroutine(DelayEx());
         }
     }
@@ -67,7 +69,10 @@ public class Weapons : MonoBehaviour
             {
                 paticle.Play();
             }
-            col.enabled = false;
+            //col.enabled = false;
+
+            transform.localScale = Vector3.one * ingameScale * 2f;
+            transform.tag = "Missile";
             StartCoroutine(ReturnPool());
     }
 
@@ -82,5 +87,7 @@ public class Weapons : MonoBehaviour
         col.isTrigger = true;
         joint.enabled = false;
         joint.connectedBody = null ;
+        transform.localScale = Vector3.one * ingameScale;
+        transform.tag = "Untagged";
     }
 }

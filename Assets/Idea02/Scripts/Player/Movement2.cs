@@ -47,7 +47,7 @@ public class Movement2 : MonoBehaviour
     [Header("Other State")]
     public bool IsCCed;
     public bool MouseIsUp = true;
-    //public float jumpDuration = 2f;
+    public bool isStandDown = false;
     Vector2 moveVal;
 
     void Start()
@@ -130,7 +130,11 @@ public class Movement2 : MonoBehaviour
             {
                 if (moveVal.x < 0)
                 {
-                    anim.Play("WalkLeft");
+                    if (!isStandDown)
+                    {
+                        anim.Play("WalkLeft");
+                    }
+
                     StartCoroutine(MoveLeft(legWait));
                     if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
                     {
@@ -143,7 +147,11 @@ public class Movement2 : MonoBehaviour
                 }
                 else
                 {
-                    anim.Play("WalkRight");
+                    if (!isStandDown) 
+                    {
+                        anim.Play("WalkRight");
+                    }
+
                     StartCoroutine(MoveRight(legWait));
                     //Hip.velocity = new Vector2(Hip.velocity.x, 0);
                     if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
@@ -161,14 +169,21 @@ public class Movement2 : MonoBehaviour
             {
                 if (moveVal.y < 0)
                 {
+                    isStandDown = true;
+                    anim.Play("Down");
                     if(Hip.velocity.y > 0) { Hip.velocity = new Vector2(Hip.velocity.x, 0); }
                     Hip.AddForce(Vector2.down * jumpHeight * 100);
+                }
+                else
+                {
+                    isStandDown = false;
                 }
             }
         }
         else
         {
             anim.Play("idle");
+            isStandDown = false;
         }
     }
     IEnumerator MoveRight(float seconds)

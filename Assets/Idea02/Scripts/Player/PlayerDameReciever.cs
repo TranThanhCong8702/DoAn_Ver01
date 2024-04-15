@@ -14,6 +14,7 @@ public class PlayerDameReciever : MonoBehaviour
             if(managre && t)
             {
                 managre.HpDes(t.Damage);
+                Debug.Log("Being Damaged " + transform.name);
             }
         }
     }
