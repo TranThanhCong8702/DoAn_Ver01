@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public LineRenderer _line;
     //public Movement2 playermove;
     //public Hooks hook;
+    public List<BulletSO> bulletSOs;
+
 
     private void Awake()
     {

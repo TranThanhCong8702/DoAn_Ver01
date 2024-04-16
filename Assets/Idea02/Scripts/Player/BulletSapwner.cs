@@ -9,7 +9,8 @@ public class BulletSapwner : MonoBehaviour
 
     public void Shooting()
     {
-        var bullet = ObjectPool.instance.Get(ObjectPool.instance.bullet);
+        Debug.Log(Pref_Data.BombID);
+        GameObject bullet = ObjectPool.instance.Get(ObjectPool.instance.pools[Pref_Data.BombID]);
         bullet.transform.position = transform.position;
         //bullet.transform.localScale = Vector3.one * 0.5f;
         bullet.SetActive(true);

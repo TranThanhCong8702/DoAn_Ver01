@@ -9,6 +9,8 @@ public class Weapons : MonoBehaviour
 {
     public int Damage = 1;
     [SerializeField] protected float WaitTime = 0.2f;
+    [SerializeField] protected float WaitTimeToEx = 0.2f;
+    [SerializeField] float AppearTime = 5f;
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] protected float ingameScale = 0.2f;
     [SerializeField] protected SpriteRenderer spriteRenderer;
@@ -18,10 +20,11 @@ public class Weapons : MonoBehaviour
     public FixedJoint2D joint;
     [SerializeField] float maxSize = 5f;
     bool demFlag;
+    float appearTimebase = 0;
 
     protected void Start()
     {
-
+        appearTimebase = AppearTime;
     }
 
     private void FixedUpdate()
@@ -30,6 +33,14 @@ public class Weapons : MonoBehaviour
         //{
         //    transform.localScale += Vector3.one * Time.deltaTime;
         //}
+        if(AppearTime > 0 && col.enabled && !joint.enabled)
+        {
+            AppearTime -= Time.deltaTime;
+            if(AppearTime <= 0)
+            {
+                StartCoroutine(DelayEx());
+            }
+        }
     }
 
     protected void OnEnable()
@@ -55,7 +66,7 @@ public class Weapons : MonoBehaviour
 
     IEnumerator DelayEx()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(WaitTimeToEx);
         Explode();
     }
     private void Explode()
@@ -70,8 +81,8 @@ public class Weapons : MonoBehaviour
                 paticle.Play();
             }
             //col.enabled = false;
-
-            transform.localScale = Vector3.one * ingameScale * 2f;
+            col.isTrigger = true;
+            transform.localScale = Vector3.one * maxSize;
             transform.tag = "Missile";
             StartCoroutine(ReturnPool());
     }
@@ -89,5 +100,6 @@ public class Weapons : MonoBehaviour
         joint.connectedBody = null ;
         transform.localScale = Vector3.one * ingameScale;
         transform.tag = "Untagged";
+        AppearTime = appearTimebase;
     }
 }

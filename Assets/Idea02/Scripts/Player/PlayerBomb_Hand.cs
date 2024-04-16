@@ -7,6 +7,7 @@ public class PlayerBomb_Hand : MonoBehaviour
     [SerializeField] FixedJoint2D fix;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Playermanager playermanager;
+    [SerializeField] float ThrowSpeed = 3;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,13 +23,13 @@ public class PlayerBomb_Hand : MonoBehaviour
         fix.enabled = true;
         fix.connectedBody = collision.attachedRigidbody;
         collision.enabled = false;
-        Debug.Log("Again");
+        //Debug.Log("Again");
     }
 
     public void Throw()
     {
         fix.enabled = false;
-        fix.connectedBody.velocity = rb.velocity * 2;
+        fix.connectedBody.velocity = playermanager.move.moveVal * ThrowSpeed;
         Invoke("StartBombing", playermanager.waitToBombTime);
     }
 

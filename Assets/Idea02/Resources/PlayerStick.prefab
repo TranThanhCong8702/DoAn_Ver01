@@ -1342,6 +1342,7 @@ MonoBehaviour:
   fix: {fileID: 2336191551702791038}
   rb: {fileID: 1370446381925504701}
   playermanager: {fileID: 1427615195}
+  ThrowSpeed: 15
 --- !u!1 &1370446382059984146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,6 +2510,8 @@ MonoBehaviour:
   hasBomb: 1
   IsCCed: 0
   MouseIsUp: 1
+  isStandDown: 0
+  moveVal: {x: 0, y: 0}
 --- !u!114 &829393444
 MonoBehaviour:
   m_ObjectHideFlags: 0

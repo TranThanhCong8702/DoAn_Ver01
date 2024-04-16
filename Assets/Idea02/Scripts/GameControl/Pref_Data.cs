@@ -9,4 +9,10 @@ public static class Pref_Data
         get => PlayerPrefs.GetFloat("sound", 1);
         set => PlayerPrefs.SetFloat("sound", value);
     }
+
+    public static int BombID
+    {
+        get => PlayerPrefs.GetInt("bombID", 0);
+        set => PlayerPrefs.SetInt("bombID", value);
+    }
 }

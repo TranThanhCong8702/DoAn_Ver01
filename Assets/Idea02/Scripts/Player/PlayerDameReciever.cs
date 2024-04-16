@@ -15,6 +15,7 @@ public class PlayerDameReciever : MonoBehaviour
             {
                 managre.HpDes(t.Damage);
                 Debug.Log("Being Damaged " + transform.name);
+                collision.enabled = false;
             }
         }
     }

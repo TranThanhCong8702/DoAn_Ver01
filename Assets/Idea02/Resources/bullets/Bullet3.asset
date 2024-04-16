@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711928df8a1371c43b3065493bab73ee, type: 3}
+  m_Name: Bullet3
+  m_EditorClassIdentifier: 
+  BulletID: 0
+  Cost: 25
+  IsBought: 0
+  avatar: {fileID: 0}
+  Bullets: {fileID: 6654971608655186934, guid: 5b8b89e7b93ea2e4f9144971979d1378, type: 3}
+  Description: 33333
+  Name: Electric Bomb

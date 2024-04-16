@@ -88,13 +88,6 @@ public class ObjectPool : MonoBehaviour
 
     public Dictionary<int, int> dicClones = new Dictionary<int, int>();
     public List<Pool> pools = new List<Pool>();
-
-    public Pool bullet;
-    public Pool water2Th;
-    public Pool waterMove;
-    public Pool medicine;
-    public Pool effectBreak;
-    public Pool pass;
     
     
     private void Awake()
@@ -104,12 +97,6 @@ public class ObjectPool : MonoBehaviour
 
     private void Start()
     {
-        pools.Add(bullet);
-        pools.Add(water2Th);
-        pools.Add(waterMove);
-        pools.Add(medicine);
-        pools.Add(effectBreak);
-        pools.Add(pass);
         foreach (var pool in pools)
         {
             pool.InitaPool(transform, dicClones);
@@ -125,19 +112,6 @@ public class ObjectPool : MonoBehaviour
                 p.Return(p.actives[p.actives.Count - 1], true);
             }
         }
-    }
-
-    public Pool TryAddPoolByScript(Pool p)
-    {
-        var existedPool = pools.Find(x => x.go == p.go);
-        if (existedPool != null)
-        {
-            Debug.LogWarning($"existed pool: {p.go.name}", p.go.transform);
-            return existedPool;
-        }
-        pools.Add(p);
-        p.InitaPool(transform, dicClones);
-        return p;
     }
 
     public GameObject Get(Pool p)

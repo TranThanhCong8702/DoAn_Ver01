@@ -31,15 +31,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Stop",
-                    "type": "Button",
-                    "id": "b5779332-36c4-4936-883a-79b897ab042f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -106,17 +97,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "74689947-1ed1-4742-8659-440537532d91",
-                    "path": "<Keyboard>/h",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Stop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -679,15 +659,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Stop",
-                    "type": "Button",
-                    "id": "43d4b184-8a89-43da-915f-95fdce6f6243",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -759,17 +730,6 @@
                 },
                 {
                     "name": "",
-                    "id": "6ce1dc50-0638-4049-b8c7-1de4c8095a8a",
-                    "path": "<Keyboard>/3",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Stop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0f77329d-db01-402c-93f6-67c0ce89c37b",
                     "path": "<Keyboard>/1",
                     "interactions": "Press,Press(behavior=1)",
@@ -807,15 +767,6 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "3e1692ab-f49e-4e7f-aa03-4fe014678ff2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Stop",
-                    "type": "Button",
-                    "id": "4693ffbf-f0e7-4c3c-84ac-054e8cfb9655",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -886,17 +837,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "31562055-17b1-41c5-9a66-3367b3ad36ff",
-                    "path": "<Keyboard>/rightBracket",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Stop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

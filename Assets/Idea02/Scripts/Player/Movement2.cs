@@ -35,7 +35,6 @@ public class Movement2 : MonoBehaviour
     [SerializeField] float deAccelRate;
 
     [SerializeField] float speed = 2f;
-    [SerializeField] float jumpHeight = 2f;
     [SerializeField] float legWait = .5f;
 
     [Header("Player's State")]
@@ -48,7 +47,7 @@ public class Movement2 : MonoBehaviour
     public bool IsCCed;
     public bool MouseIsUp = true;
     public bool isStandDown = false;
-    Vector2 moveVal;
+    public Vector2 moveVal;
 
     void Start()
     {
@@ -57,7 +56,7 @@ public class Movement2 : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveVal = value.Get<Vector2>();
-        Debug.Log(moveVal);
+        //Debug.Log(moveVal);
     }
     void OnFire(InputValue val)
     {
@@ -171,8 +170,6 @@ public class Movement2 : MonoBehaviour
                 {
                     isStandDown = true;
                     anim.Play("Down");
-                    if(Hip.velocity.y > 0) { Hip.velocity = new Vector2(Hip.velocity.x, 0); }
-                    Hip.AddForce(Vector2.down * jumpHeight * 100);
                 }
                 else
                 {

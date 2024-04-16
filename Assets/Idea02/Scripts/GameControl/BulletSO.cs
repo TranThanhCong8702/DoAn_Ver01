@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletSO : MonoBehaviour
+[CreateAssetMenu(menuName = "BulletList", fileName = "Bullet")]
+public class BulletSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int BulletID = 0;
+    public float Cost = 10;
+    public bool IsBought;
+    public Sprite avatar;
+    public GameObject Bullets;
+    [TextArea(2, 6)]
+    public string Description;
+    public string Name;
 }
