@@ -17,9 +17,10 @@ public class Weapons : MonoBehaviour
     [SerializeField] protected Collider2D col;
     [SerializeField] protected ParticleSystem paticle;
     [SerializeField] protected AudioSource audioSource;
+    [SerializeField] Animator anim;
     public FixedJoint2D joint;
     [SerializeField] float maxSize = 5f;
-    bool demFlag;
+    public bool IsBought;
     float appearTimebase = 0;
 
     protected void Start()
@@ -60,6 +61,10 @@ public class Weapons : MonoBehaviour
             joint.enabled = true;
             joint.connectedBody = collision.rigidbody;
             joint.enableCollision = true;
+            if (anim)
+            {
+                anim.enabled = true;
+            }
             StartCoroutine(DelayEx());
         }
     }
@@ -95,6 +100,10 @@ public class Weapons : MonoBehaviour
     private void OnDisable()
     {
         spriteRenderer.enabled = true;
+        if (anim)
+        {
+            anim.enabled = false;
+        }
         col.isTrigger = true;
         joint.enabled = false;
         joint.connectedBody = null ;

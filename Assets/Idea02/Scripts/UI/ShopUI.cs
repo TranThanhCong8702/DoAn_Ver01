@@ -21,7 +21,7 @@ public class ShopUI : MonoBehaviour
         currId = id;
         BombName.text = GameManager.instance.bulletSOs[id].Name;
         Des.text = GameManager.instance.bulletSOs[id].Description;
-        if (!GameManager.instance.bulletSOs[id].IsBought )
+        if (!GameManager.instance.bulletSOs[currId].weapon.IsBought)
         {
             Buy.gameObject.SetActive(true);
             Buy.GetComponentInChildren<Text>().text = GameManager.instance.bulletSOs[id].Cost.ToString();
@@ -47,7 +47,7 @@ public class ShopUI : MonoBehaviour
 
     public void Buying()
     {
-        GameManager.instance.bulletSOs[currId].IsBought = true;
+        GameManager.instance.bulletSOs[currId].weapon.IsBought = true;
         Equip.gameObject.SetActive(true);
         Buy.gameObject.SetActive(false);
     }

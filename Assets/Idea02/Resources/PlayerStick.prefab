@@ -1247,9 +1247,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -1622,9 +1622,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -2140,9 +2140,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -2502,7 +2502,6 @@ MonoBehaviour:
   MinSpeed: 0
   deAccelRate: 0
   speed: 3
-  jumpHeight: 0.75
   legWait: 0.05
   bulletspawner: {fileID: 22306684}
   playermanager: {fileID: 1427615195}
@@ -2560,8 +2559,8 @@ MonoBehaviour:
   HPvalue: 0
   HPmax: 50
   ManaBar: {fileID: 2101989323}
-  ManaBarmax: 1
-  ManaBarVal: 1
+  ManaBarmax: 2
+  ManaBarVal: 2
   bulletspawner: {fileID: 22306684}
   move: {fileID: 2109985765}
   hand: {fileID: 8043957941945674222}
@@ -2877,9 +2876,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0

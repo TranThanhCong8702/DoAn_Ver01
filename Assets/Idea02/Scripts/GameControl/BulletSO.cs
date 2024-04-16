@@ -7,7 +7,7 @@ public class BulletSO : ScriptableObject
 {
     public int BulletID = 0;
     public float Cost = 10;
-    public bool IsBought;
+    public Weapons weapon;
     public Sprite avatar;
     public GameObject Bullets;
     [TextArea(2, 6)]

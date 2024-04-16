@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6654971608655186932}
   - component: {fileID: 6654971608655186935}
   - component: {fileID: 2148257445144576694}
+  - component: {fileID: 65738506312681196}
   m_Layer: 0
   m_Name: bullets 4
   m_TagString: Untagged
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 753158449
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.4586385, g: 0, b: 0.7264151, a: 1}
+  m_Sprite: {fileID: -9070499791870808695, guid: 045eb5e1f0cbc424e9a8eed9eaf27bf8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   WaitTime: 1.1
-  WaitTimeToEx: 5
+  WaitTimeToEx: 3
   AppearTime: 8
   rb: {fileID: 6654971608655186935}
   ingameScale: 1
@@ -127,8 +128,10 @@ MonoBehaviour:
   col: {fileID: 6654971608655186933}
   paticle: {fileID: 5998079603274116376}
   audioSource: {fileID: 0}
+  anim: {fileID: 65738506312681196}
   joint: {fileID: 2148257445144576694}
   maxSize: 5
+  IsBought: 1
 --- !u!50 &6654971608655186935
 Rigidbody2D:
   serializedVersion: 4
@@ -141,7 +144,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.01
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -168,6 +171,27 @@ FixedJoint2D:
   m_ConnectedAnchor: {x: 2.15, y: 0.77}
   m_DampingRatio: 0
   m_Frequency: 0
+--- !u!95 &65738506312681196
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654971608655186934}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f63b74488e838b4b9f8025c8f4a611a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5998079603254850264
 PrefabInstance:
   m_ObjectHideFlags: 0

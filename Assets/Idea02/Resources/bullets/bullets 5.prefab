@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6654971608655186932}
   - component: {fileID: 6654971608655186935}
   - component: {fileID: 2148257445144576694}
+  - component: {fileID: 2706882582847272826}
   m_Layer: 0
   m_Name: bullets 5
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6654971608655186934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.15, y: 0.77, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1852922901917101328}
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 753158449
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.32138366, g: 0.6886792, b: 0, a: 1}
+  m_Sprite: {fileID: 7293598183456022363, guid: 1ddc9afd21fec77489b1248d18f31b68, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   WaitTime: 1.1
-  WaitTimeToEx: 5
+  WaitTimeToEx: 3
   AppearTime: 8
   rb: {fileID: 6654971608655186935}
   ingameScale: 1
@@ -127,8 +128,10 @@ MonoBehaviour:
   col: {fileID: 6654971608655186933}
   paticle: {fileID: 1852922901932304464}
   audioSource: {fileID: 0}
+  anim: {fileID: 2706882582847272826}
   joint: {fileID: 2148257445144576694}
   maxSize: 5
+  IsBought: 1
 --- !u!50 &6654971608655186935
 Rigidbody2D:
   serializedVersion: 4
@@ -141,7 +144,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.01
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -168,6 +171,27 @@ FixedJoint2D:
   m_ConnectedAnchor: {x: 2.15, y: 0.77}
   m_DampingRatio: 0
   m_Frequency: 0
+--- !u!95 &2706882582847272826
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654971608655186934}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bffc80a944d9d904f98e5a86d7a91662, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1852922901916972948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -182,6 +206,18 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
       propertyPath: m_LocalPosition.x

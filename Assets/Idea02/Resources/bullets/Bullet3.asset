@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletID: 0
   Cost: 25
-  IsBought: 0
+  weapon: {fileID: 6654971608655186932, guid: 5b8b89e7b93ea2e4f9144971979d1378, type: 3}
   avatar: {fileID: 0}
   Bullets: {fileID: 6654971608655186934, guid: 5b8b89e7b93ea2e4f9144971979d1378, type: 3}
   Description: 33333

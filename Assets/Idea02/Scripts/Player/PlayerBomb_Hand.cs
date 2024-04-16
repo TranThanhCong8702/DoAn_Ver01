@@ -30,6 +30,10 @@ public class PlayerBomb_Hand : MonoBehaviour
     {
         fix.enabled = false;
         fix.connectedBody.velocity = playermanager.move.moveVal * ThrowSpeed;
+        //if (Mathf.Abs(playermanager.move.moveVal.x) > 0.05f && Mathf.Abs(playermanager.move.moveVal.y) > 0.05f)
+        //{
+        //    fix.connectedBody.velocity = rb.velocity;
+        //}
         Invoke("StartBombing", playermanager.waitToBombTime);
     }
 
