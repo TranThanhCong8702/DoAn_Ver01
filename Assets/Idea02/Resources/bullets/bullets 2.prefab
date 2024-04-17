@@ -130,7 +130,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   joint: {fileID: 2148257445144576694}
   maxSize: 4
-  IsBought: 1
+  IsBought: 0
 --- !u!50 &6654971608655186935
 Rigidbody2D:
   serializedVersion: 4
