@@ -21,13 +21,21 @@ public class Playermanager : MonoBehaviour
     public Movement2 move;
     public PlayerBomb_Hand hand;
     public float waitToBombTime = 0.2f;
-
+    public Vector3 DefaultPos;
+    [SerializeField] float DeadTimer = 0.5f;
+    [SerializeField] List<HingeJoint2D> joints;
+    int dem = 0;
     private void Start()
     {
+        DefaultPos = transform.position;
         HPvalue = HPmax;
         HPslider.fillAmount = HPvalue / HPmax;
         ManaBarVal = ManaBarmax;
         ManaBar.fillAmount = ManaBarVal / ManaBarmax;
+    }
+    private void OnDisable()
+    {
+        //transform.position = DefaultPos;
     }
     private void OnEnable()
     {
@@ -45,6 +53,12 @@ public class Playermanager : MonoBehaviour
     {
         HPvalue -= dame;
         HPslider.fillAmount = HPvalue / HPmax;
+        if(HPvalue <= 0 && dem == 0)
+        {
+            move.IsCCed = true;
+            SelfDes();
+            hand.OnExplode();
+        }
     }
 
     private void Update()
@@ -60,5 +74,20 @@ public class Playermanager : MonoBehaviour
             }
         }
         HpbarContainer.position = followTarget.position + new Vector3(0,1.5f,0);
+        
+    }
+    public void SelfDes()
+    {
+        dem++;
+        foreach(var item in joints)
+        {
+            item.breakForce = 0;
+        }
+        GameManager.instance.OnePlayerOffPvp();
+        Destroy(gameObject, DeadTimer);
+    }
+    public void SelfDesImadiate()
+    {
+        Destroy(gameObject);
     }
 }

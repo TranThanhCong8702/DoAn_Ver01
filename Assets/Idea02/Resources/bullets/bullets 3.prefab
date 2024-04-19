@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4629400389772223910}
   m_Layer: 0
   m_Name: bullets 3
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc82720c1da2b154983d9068a811ebc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 2
   WaitTime: 0.71
-  WaitTimeToEx: 2.5
+  WaitTimeToEx: 1.8
   AppearTime: 8
   rb: {fileID: 6654971608655186935}
   ingameScale: 1
@@ -130,8 +130,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   anim: {fileID: 4629400389772223910}
   joint: {fileID: 2148257445144576694}
-  maxSize: 4
-  IsBought: 0
+  maxSize: 3
 --- !u!50 &6654971608655186935
 Rigidbody2D:
   serializedVersion: 4
@@ -179,7 +178,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6654971608655186934}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 79762c852a06cd5418d1a653995ff2ab, type: 2}
   m_CullingMode: 0

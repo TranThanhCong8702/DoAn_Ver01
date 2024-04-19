@@ -1278,8 +1278,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -10
-    m_UpperAngle: 10
+    m_LowerAngle: -5
+    m_UpperAngle: 5
 --- !u!70 &1370446381925504703
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1653,8 +1653,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -10
-    m_UpperAngle: 10
+    m_LowerAngle: -5
+    m_UpperAngle: 5
 --- !u!70 &1370446382271009932
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1892,7 +1892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370446382469691515}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1110001, y: 1.2629999, z: 0}
+  m_LocalPosition: {x: -1.111, y: 1.2629999, z: 0}
   m_LocalScale: {x: 1.25, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1987,7 +1987,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -0.5}
-  m_ConnectedAnchor: {x: -0.00000009536743, y: 0.110000014}
+  m_ConnectedAnchor: {x: 0, y: 0.110000014}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2565,6 +2565,19 @@ MonoBehaviour:
   move: {fileID: 2109985765}
   hand: {fileID: 8043957941945674222}
   waitToBombTime: 0
+  DefaultPos: {x: 0, y: 0, z: 0}
+  DeadTimer: 1.5
+  joints:
+  - {fileID: 1370446382851976831}
+  - {fileID: 1370446382469691495}
+  - {fileID: 1370446382544184670}
+  - {fileID: 1370446383177580193}
+  - {fileID: 1370446382271009933}
+  - {fileID: 1370446381925504700}
+  - {fileID: 1370446383159075518}
+  - {fileID: 1370446382059984145}
+  - {fileID: 1370446381682357308}
+  - {fileID: 1370446382409614884}
 --- !u!1 &1370446383150594851
 GameObject:
   m_ObjectHideFlags: 0

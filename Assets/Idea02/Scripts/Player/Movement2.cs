@@ -14,10 +14,10 @@ public class Movement2 : MonoBehaviour
     [SerializeField] Rigidbody2D rightLegRBlow;
 
     [Header("Arm")]
-    [SerializeField] Rigidbody2D leftHandRB;
-    [SerializeField] Rigidbody2D rightHandRB;
-    [SerializeField] Rigidbody2D leftHandRBlow;
-    [SerializeField] Rigidbody2D rightHandRBlow;
+    public Rigidbody2D leftHandRB;
+    public Rigidbody2D rightHandRB;
+    public Rigidbody2D leftHandRBlow;
+    public Rigidbody2D rightHandRBlow;
     [SerializeField] float handForce = 1000f;
 
     [Header("Hook")]
@@ -56,7 +56,7 @@ public class Movement2 : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveVal = value.Get<Vector2>();
-        //Debug.Log(moveVal);
+        Debug.Log(moveVal);
     }
     void OnFire(InputValue val)
     {
@@ -78,16 +78,12 @@ public class Movement2 : MonoBehaviour
         }
 
     }
-    //void OnRelease(InputValue val)
-    //{
 
-    //}
 
     void OnJump(InputValue val)
     {
         if (val.isPressed && hasBomb)
         {
-            //IsShooting= true;
             bombhand.Throw();
             hasBomb = false;
             playermanager.ManaBarVal = 0;
@@ -133,7 +129,6 @@ public class Movement2 : MonoBehaviour
                     {
                         anim.Play("WalkLeft");
                     }
-
                     StartCoroutine(MoveLeft(legWait));
                     if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
                     {
@@ -150,9 +145,7 @@ public class Movement2 : MonoBehaviour
                     {
                         anim.Play("WalkRight");
                     }
-
                     StartCoroutine(MoveRight(legWait));
-                    //Hip.velocity = new Vector2(Hip.velocity.x, 0);
                     if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
                     {
                         Hip.velocity = new Vector2(MaxSpeed, Hip.velocity.y);
@@ -175,6 +168,11 @@ public class Movement2 : MonoBehaviour
                 {
                     isStandDown = false;
                 }
+            }
+            if (moveVal.y == 0)
+            {
+                isStandDown = false;
+                
             }
         }
         else

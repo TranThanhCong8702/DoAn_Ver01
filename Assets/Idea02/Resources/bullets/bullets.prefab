@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2148257445144576694}
   m_Layer: 0
   m_Name: bullets
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,6 @@ MonoBehaviour:
   anim: {fileID: 0}
   joint: {fileID: 2148257445144576694}
   maxSize: 3
-  IsBought: 1
 --- !u!50 &6654971608655186935
 Rigidbody2D:
   serializedVersion: 4

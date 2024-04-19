@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Weapons : MonoBehaviour
 {
@@ -20,8 +20,14 @@ public class Weapons : MonoBehaviour
     [SerializeField] Animator anim;
     public FixedJoint2D joint;
     [SerializeField] float maxSize = 5f;
-    public bool IsBought;
+    
     float appearTimebase = 0;
+
+    public bool IsBought
+    {
+        get => PlayerPrefs.GetInt(transform.name, 0) == 1;
+        set => PlayerPrefs.SetInt(transform.name, value ? 1 : 0);
+    }
 
     protected void Start()
     {
@@ -51,7 +57,10 @@ public class Weapons : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        //if (collision.transform.CompareTag("Bomb") && collision.isTrigger)
+        //{
+        //    Explode();
+        //}
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -74,7 +83,7 @@ public class Weapons : MonoBehaviour
         yield return new WaitForSeconds(WaitTimeToEx);
         Explode();
     }
-    private void Explode()
+    public void Explode()
     {
             spriteRenderer.enabled = false;
             if (audioSource != null)
@@ -108,7 +117,7 @@ public class Weapons : MonoBehaviour
         joint.enabled = false;
         joint.connectedBody = null ;
         transform.localScale = Vector3.one * ingameScale;
-        transform.tag = "Untagged";
+        transform.tag = "Bomb";
         AppearTime = appearTimebase;
     }
 }

@@ -16,30 +16,69 @@ public class GameManager : MonoBehaviour
     public List<GameObject> Maps;
     public List<GameObject> Players;
 
+    public List<GameObject> mapcurr;
+    public List<GameObject> playersCurr;
+    public int PlayerNumbCurr;
     private void Awake()
     {
         instance = this;
+        bulletSOs[0].weapon.IsBought = true;
     }
 
     public void InsPvPmaps()
     {
         int i = Random.Range(0, Maps.Count);
-        var t = Instantiate(Maps[i], GamePlay);
+        var t = Instantiate(Maps[i].gameObject, GamePlay);
+        mapcurr.Add(t);
+    }
+    public void DestroyMap()
+    {
+        mapcurr[0].GetComponent<Platform>().SelfDes();
+        mapcurr.Clear();
     }
     public void PlayerNumbOn(int number)
     {
         for(int i = 0; i < number; i++)
         {
-            Players[i].SetActive(true);
+            var p = Instantiate(Players[i], GamePlay);
+            playersCurr.Add(p);
         }
+        PlayerNumbCurr = playersCurr.Count;
     }
-    public void PlayerOff()
+    public void AllPlayerOff()
     {
-        foreach(var p in Players)
+        foreach(var p in playersCurr)
         {
-            p.SetActive(false);
+            if(p != null)
+            {
+                var s = p.GetComponent<Playermanager>();
+                if(s != null)
+                {
+                    s.SelfDesImadiate();
+                }
+            }
+        }
+        playersCurr.Clear();
+        ObjectPool.instance.ReturnAllPool();
+    }
+    public void OnePlayerOffPvp()
+    {
+        PlayerNumbCurr--;
+        if(PlayerNumbCurr == 1)
+        {
+            //StopTime();
+            //Win
         }
     }
+
+    //private static void StopTime()
+    //{
+    //    Time.timeScale = 0;
+    //}
+    //private static void StartTime()
+    //{
+    //    Time.timeScale = 1;
+    //}
     public void InsStorymaps()
     {
 

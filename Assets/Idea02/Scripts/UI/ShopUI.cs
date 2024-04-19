@@ -25,9 +25,11 @@ public class ShopUI : MonoBehaviour
         {
             Buy.gameObject.SetActive(true);
             Buy.GetComponentInChildren<Text>().text = GameManager.instance.bulletSOs[id].Cost.ToString();
+            Equip.gameObject.SetActive(false);
         }
         else if(Pref_Data.BombID != id)
         {
+            Buy.gameObject.SetActive(false);
             Equip.gameObject.SetActive(true);
         }
         else
