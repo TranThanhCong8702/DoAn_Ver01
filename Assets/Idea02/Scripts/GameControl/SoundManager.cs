@@ -5,8 +5,14 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance;
     public Slider volumeSlider;
+    public Slider volumeSlider2;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         volumeSlider.value = Pref_Data.Sound;
@@ -15,5 +21,10 @@ public class SoundManager : MonoBehaviour
     {
         AudioListener.volume = volumeSlider.value;
         Pref_Data.Sound = volumeSlider.value;
+    }
+    public void ChangeValue2()
+    {
+        AudioListener.volume = volumeSlider2.value;
+        Pref_Data.Sound = volumeSlider2.value;
     }
 }

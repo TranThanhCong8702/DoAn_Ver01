@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: DeadTimer
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1427615195, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
+      propertyPath: playerName
+      value: RED
+      objectReference: {fileID: 0}
     - target: {fileID: 1370446381682357309, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
       propertyPath: m_Color.b
       value: 0.35500622

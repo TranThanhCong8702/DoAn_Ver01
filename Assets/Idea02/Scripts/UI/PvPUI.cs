@@ -16,7 +16,7 @@ public class PvPUI : MonoBehaviour
         gameObject.SetActive(false);
         Play.gameObject.SetActive(false);
         Player3Map.SetActive(false);
-
+        GameManager.instance.StartTime();
     }
     public void BackMain()
     {

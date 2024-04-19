@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> mapcurr;
     public List<GameObject> playersCurr;
     public int PlayerNumbCurr;
+    string winnerName;
     private void Awake()
     {
         instance = this;
@@ -66,19 +67,40 @@ public class GameManager : MonoBehaviour
         PlayerNumbCurr--;
         if(PlayerNumbCurr == 1)
         {
-            //StopTime();
-            //Win
+            foreach (var p in playersCurr)
+            {
+                if (p != null)
+                {
+                    var temp = p.GetComponent<Playermanager>();
+                    if (temp)
+                    { 
+                        if(temp.HPvalue > 0)
+                        {
+                            winnerName = temp.playerName.ToString();
+                        }
+                    }
+                }
+            }
+            StartCoroutine(DelayWin());
         }
     }
 
-    //private static void StopTime()
-    //{
-    //    Time.timeScale = 0;
-    //}
-    //private static void StartTime()
-    //{
-    //    Time.timeScale = 1;
-    //}
+    IEnumerator DelayWin()
+    {
+        yield return new WaitForSeconds(2f);
+        StopTime();
+        UIController.instance.inGameUI.WinPopUp.SetActive(true);
+        UIController.instance.inGameUI.winner.text = winnerName + " WIN !";
+    }
+
+    public void StopTime()
+    {
+        Time.timeScale = 0;
+    }
+    public void StartTime()
+    {
+        Time.timeScale = 1;
+    }
     public void InsStorymaps()
     {
 

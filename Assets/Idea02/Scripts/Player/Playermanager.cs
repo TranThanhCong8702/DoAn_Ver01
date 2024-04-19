@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Playermanager : MonoBehaviour
 {
+    [Header("Player Name")]
+    public string playerName;
     [Header("HpBar Follow")]
     [SerializeField] Transform HpbarContainer;
     [SerializeField] Transform followTarget;
