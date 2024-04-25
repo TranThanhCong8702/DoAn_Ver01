@@ -88,8 +88,8 @@ public class ObjectPool : MonoBehaviour
 
     public Dictionary<int, int> dicClones = new Dictionary<int, int>();
     public List<Pool> pools = new List<Pool>();
-    
-    
+    public List<Pool> mapPlat = new List<Pool>();
+
     private void Awake()
     {
         instance = this;
@@ -101,11 +101,22 @@ public class ObjectPool : MonoBehaviour
         {
             pool.InitaPool(transform, dicClones);
         }
+        foreach (var pool in mapPlat)
+        {
+            pool.InitaPool(transform, dicClones);
+        }
     }
 
     public void ReturnAllPool()
     {
         foreach (var p in pools)
+        {
+            while (p.actives.Count > 0)
+            {
+                p.Return(p.actives[p.actives.Count - 1], true);
+            }
+        }
+        foreach (var p in mapPlat)
         {
             while (p.actives.Count > 0)
             {
@@ -140,13 +151,21 @@ public class ObjectPool : MonoBehaviour
             if (pool.GetHashCode() == hash)
                 return pool;
         }
-
+        foreach (var pool in mapPlat)
+        {
+            if (pool.GetHashCode() == hash)
+                return pool;
+        }
         return null;
     }
 
     private void OnDestroy()
     {
         foreach (var pool in pools)
+        {
+            pool.OnDestroy();
+        }
+        foreach (var pool in mapPlat)
         {
             pool.OnDestroy();
         }

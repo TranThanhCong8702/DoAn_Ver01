@@ -21,10 +21,12 @@ public class SoundManager : MonoBehaviour
     {
         AudioListener.volume = volumeSlider.value;
         Pref_Data.Sound = volumeSlider.value;
+        volumeSlider2.value = Pref_Data.Sound;
     }
     public void ChangeValue2()
     {
         AudioListener.volume = volumeSlider2.value;
         Pref_Data.Sound = volumeSlider2.value;
+        volumeSlider.value = Pref_Data.Sound;
     }
 }

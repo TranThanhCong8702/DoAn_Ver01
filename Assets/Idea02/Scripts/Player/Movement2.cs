@@ -64,8 +64,14 @@ public class Movement2 : MonoBehaviour
         {
             MouseIsUp = false;
             hook.gameObject.SetActive(true);
-            hook.rb.AddForce(/*hook.transform.parent.up*/moveVal.normalized * (hook.speed * 100), ForceMode2D.Force);
-
+            if(moveVal != Vector2.zero)
+            {
+                hook.rb.AddForce(/*hook.transform.parent.up*/moveVal.normalized * (hook.speed * 100), ForceMode2D.Force);
+            }
+            else
+            {
+                hook.rb.AddForce(hook.transform.parent.up * (hook.speed * 100), ForceMode2D.Force);
+            }
         }
         else
         {

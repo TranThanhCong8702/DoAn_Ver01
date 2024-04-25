@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class Pref_Data
 {
+
     public static float Sound
     {
         get => PlayerPrefs.GetFloat("sound", 1);

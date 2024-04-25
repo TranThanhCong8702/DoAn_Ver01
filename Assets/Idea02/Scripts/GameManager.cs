@@ -23,12 +23,16 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        FirstBomb();
+        //if(Application.)
+    }
+    public void FirstBomb()
+    {
         bulletSOs[0].weapon.IsBought = true;
     }
-
     public void InsPvPmaps()
     {
-        int i = Random.Range(0, Maps.Count);
+        int i = Random.Range(0,0);
         var t = Instantiate(Maps[i].gameObject, GamePlay);
         mapcurr.Add(t);
     }

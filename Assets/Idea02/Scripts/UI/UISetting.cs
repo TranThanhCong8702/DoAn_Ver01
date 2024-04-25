@@ -6,11 +6,39 @@ using UnityEngine.InputSystem;
 
 public class UISetting : MonoBehaviour
 {
+    public GameObject AreSurePanel;
     //public List<InputActionReference> MoveRef;
     private void Start()
     {
-        
+        if (AreSurePanel != null)
+        {
+            AreSurePanel.SetActive(false);
+        }
     }
+
+    public void DelData()
+    {
+        if (AreSurePanel != null)
+        {
+            AreSurePanel.SetActive(true);
+        }
+    }
+
+    public void YesDelete()
+    {
+        PlayerPrefs.DeleteAll();
+        GameManager.instance.FirstBomb();
+        AreSurePanel.SetActive(false);
+    }
+    public void NoDelete()
+    {
+
+        if (AreSurePanel != null)
+        {
+            AreSurePanel.SetActive(false);
+        }
+    }
+
     public void Back()
     {
         UIController.instance.mainUI.gameObject.SetActive(true);
