@@ -30,6 +30,7 @@ public class Weapons : MonoBehaviour
     protected void Start()
     {
         appearTimebase = AppearTime;
+        transform.localScale = Vector3.one * ingameScale / 2;
     }
 
     private void FixedUpdate()
@@ -50,7 +51,7 @@ public class Weapons : MonoBehaviour
 
     protected void OnEnable()
     {
-        transform.localScale = Vector3.one * ingameScale;
+        transform.localScale = Vector3.one * ingameScale /2;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -114,7 +115,7 @@ public class Weapons : MonoBehaviour
         col.isTrigger = true;
         joint.enabled = false;
         joint.connectedBody = null ;
-        transform.localScale = Vector3.one * ingameScale;
+        transform.localScale = Vector3.one * ingameScale/2;
         transform.tag = "Bomb";
         AppearTime = appearTimebase;
     }

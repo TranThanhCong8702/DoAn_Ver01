@@ -2585,7 +2585,7 @@ MonoBehaviour:
   bulletspawner: {fileID: 22306684}
   move: {fileID: 2109985765}
   hand: {fileID: 8043957941945674222}
-  waitToBombTime: 0
+  waitToBombTime: 0.1
   DefaultPos: {x: 0, y: 0, z: 0}
   DeadTimer: 1.5
   joints:

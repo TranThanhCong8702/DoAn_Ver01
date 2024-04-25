@@ -52,6 +52,7 @@ public class PlayerBomb_Hand : MonoBehaviour
 
     private void StartBombing()
     {
+        fix.connectedBody.transform.localScale = fix.connectedBody.transform.localScale * 2;
         fix.connectedBody.GetComponent<Collider2D>().enabled = true;
         fix.connectedBody.GetComponent<Collider2D>().isTrigger = false;
     }
