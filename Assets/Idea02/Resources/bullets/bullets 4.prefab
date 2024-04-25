@@ -146,7 +146,7 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 5bb2777b8019ed645b9952e3856876e7, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -251,6 +251,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.03962803
       objectReference: {fileID: 0}
@@ -266,6 +270,22 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 19900000, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
       propertyPath: m_SortingLayer
       value: 4
@@ -277,6 +297,14 @@ PrefabInstance:
     - target: {fileID: 19900000, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1439274777
       objectReference: {fileID: 0}
     - target: {fileID: 19900002, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
       propertyPath: m_Materials.Array.size

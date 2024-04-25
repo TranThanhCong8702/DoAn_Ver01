@@ -17,7 +17,7 @@ public class Hooks : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground"))
+        if ((collision.CompareTag("Ground") || collision.CompareTag("Finish")) && !collision.isTrigger)
         {
             //rb.bodyType = RigidbodyType2D.Static;
             Fixjoint.enabled = true;

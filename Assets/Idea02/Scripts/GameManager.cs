@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     }
     public void InsPvPmaps()
     {
-        int i = Random.Range(0,0);
+        int i = Random.Range(0,Maps.Count);
         var t = Instantiate(Maps[i].gameObject, GamePlay);
         mapcurr.Add(t);
     }
