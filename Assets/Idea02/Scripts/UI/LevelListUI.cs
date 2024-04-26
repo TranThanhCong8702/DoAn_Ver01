@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelListUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    int currId = 0;
 
-    // Update is called once per frame
-    void Update()
+    public void InsStoryMap(int id)
     {
-        
+        GameManager.instance.StartTime();
+        GameManager.instance.InsStorymaps(id);
+        gameObject.SetActive(false);
+    }
+    public void ExitToMain()
+    {
+        UIController.instance.mainUI.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

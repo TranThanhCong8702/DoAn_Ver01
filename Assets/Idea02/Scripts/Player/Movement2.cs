@@ -30,7 +30,7 @@ public class Movement2 : MonoBehaviour
     Animator anim;
 
     [SerializeField] float MaxSpeed;
-    [SerializeField] float MinSpeed;
+    [SerializeField] float YMaxSpeed;
 
     [SerializeField] float deAccelRate;
 
@@ -172,6 +172,14 @@ public class Movement2 : MonoBehaviour
                 }
                 else
                 {
+                    if (YMaxSpeed < Hip.velocity.y)
+                    {
+                        Hip.velocity = new Vector2(Hip.velocity.x, MaxSpeed);
+                    }
+                    else
+                    {
+                        Hip.velocity = new Vector2(Hip.velocity.x, Hip.velocity.y);
+                    }
                     isStandDown = false;
                 }
             }

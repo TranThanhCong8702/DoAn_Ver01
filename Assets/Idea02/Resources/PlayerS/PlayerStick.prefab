@@ -2519,7 +2519,7 @@ MonoBehaviour:
   _line: {fileID: 2043943003}
   Hip: {fileID: 1370446381697412152}
   MaxSpeed: 5
-  MinSpeed: 0
+  YMaxSpeed: 5
   deAccelRate: 0
   speed: 3
   legWait: 0.05

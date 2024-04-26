@@ -85,7 +85,14 @@ public class Playermanager : MonoBehaviour
         {
             item.breakForce = 0;
         }
-        GameManager.instance.OnePlayerOffPvp();
+        if(GameManager.instance.IsPvp)
+        {
+            GameManager.instance.OnePlayerOffPvp();
+        }
+        else
+        {
+
+        }
         Destroy(gameObject, DeadTimer);
     }
     public void SelfDesImadiate()
