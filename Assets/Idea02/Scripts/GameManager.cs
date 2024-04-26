@@ -51,7 +51,11 @@ public class GameManager : MonoBehaviour
     }
     public void DestroyMap()
     {
-        mapcurr[0].GetComponent<Platform>().SelfDes();
+        var t = mapcurr[0].GetComponent<Platform>();
+        if (t != null)
+        {
+            t.SelfDes();
+        }
         mapcurr.Clear();
     }
     public void PlayerNumbOn(int number)
@@ -102,6 +106,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StoryLoss()
+    {
+        PlayerNumbCurr--;
+        if (PlayerNumbCurr == 0)
+        {
+            winnerName = "YOU LOSE, BOSS";
+            StartCoroutine(DelayWinStory());
+        }
+    }
+    public void StoryWin()
+    {
+        winnerName = "YOU";
+        StartCoroutine(DelayWinStory());
+    }
+    IEnumerator DelayWinStory()
+    {
+        yield return new WaitForSeconds(2f);
+        StopTime();
+        UIController.instance.storuUI.WinPopUp.SetActive(true);
+        UIController.instance.storuUI.winner.text = winnerName + " WIN !";
+    }
+
     IEnumerator DelayWin()
     {
         yield return new WaitForSeconds(2f);
@@ -124,7 +150,7 @@ public class GameManager : MonoBehaviour
         StoryMaps[id].SetActive(true);
         StoryBackGround.gameObject.SetActive(true);
         StoryBackGround.sprite = storySprites[id];
-        int i = Random.Range(0, 2);
+        int i = /*Random.Range(0, 2)*/0;
         var p = Instantiate(Players[i], Vector3.zero, Quaternion.identity, GamePlay);
         playersCurr.Add(p);
         PlayerNumbCurr = playersCurr.Count;
@@ -136,5 +162,10 @@ public class GameManager : MonoBehaviour
     {
         cam.gameObject.SetActive(false);
         StoryCam.transform.parent.parent.gameObject.SetActive(true);
+    }
+    public void ChangeCamBack()
+    {
+        cam.gameObject.SetActive(true);
+        StoryCam.transform.parent.parent.gameObject.SetActive(false);
     }
 }

@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     public PvPUI pvPUI;
     public UISetting settingUI;
     public LevelListUI levelListUI;
+    public InGameStory storuUI;
 
     private void Awake()
     {

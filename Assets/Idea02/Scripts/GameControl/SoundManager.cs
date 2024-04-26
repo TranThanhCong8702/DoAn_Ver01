@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
     public Slider volumeSlider;
     public Slider volumeSlider2;
+    public Slider volumeSlider3;
 
     private void Awake()
     {
@@ -22,11 +23,20 @@ public class SoundManager : MonoBehaviour
         AudioListener.volume = volumeSlider.value;
         Pref_Data.Sound = volumeSlider.value;
         volumeSlider2.value = Pref_Data.Sound;
+        volumeSlider3.value = Pref_Data.Sound;
     }
     public void ChangeValue2()
     {
         AudioListener.volume = volumeSlider2.value;
         Pref_Data.Sound = volumeSlider2.value;
         volumeSlider.value = Pref_Data.Sound;
+        volumeSlider3.value = Pref_Data.Sound;
+    }
+    public void ChangeValue3()
+    {
+        AudioListener.volume = volumeSlider3.value;
+        Pref_Data.Sound = volumeSlider3.value;
+        volumeSlider.value = Pref_Data.Sound;
+        volumeSlider2.value = Pref_Data.Sound;
     }
 }

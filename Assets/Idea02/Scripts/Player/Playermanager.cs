@@ -91,7 +91,7 @@ public class Playermanager : MonoBehaviour
         }
         else
         {
-
+            GameManager.instance.StoryLoss();
         }
         Destroy(gameObject, DeadTimer);
     }

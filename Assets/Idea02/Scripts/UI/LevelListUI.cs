@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class LevelListUI : MonoBehaviour
 {
-    
-    int currId = 0;
 
     public void InsStoryMap(int id)
     {
         GameManager.instance.StartTime();
         GameManager.instance.InsStorymaps(id);
         gameObject.SetActive(false);
+        UIController.instance.storuUI.gameObject.SetActive(true);
     }
     public void ExitToMain()
     {
