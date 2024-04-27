@@ -158,6 +158,14 @@ public class GameManager : MonoBehaviour
         StoryCam.Follow = p.GetComponent<Movement2>().Hip.transform;
     }
 
+    public void DesStoryMap()
+    {
+        foreach(var item in StoryMaps)
+        {
+            item.SetActive(false);
+        }
+    }
+
     private void ChangeCam()
     {
         cam.gameObject.SetActive(false);

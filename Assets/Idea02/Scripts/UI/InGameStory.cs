@@ -16,6 +16,7 @@ public class InGameStory : MonoBehaviour
     }
     public void ExitToMain()
     {
+        GameManager.instance.DesStoryMap();
         GameManager.instance.AllPlayerOff();
         UIController.instance.mainUI.gameObject.SetActive(true);
         PopUp.SetActive(false);
