@@ -9,11 +9,15 @@ public class ShopUI : MonoBehaviour
     [SerializeField] Text Des;
     [SerializeField] Button Buy;
     [SerializeField] Button Equip;
+
+    public Text gold;
+
     int currId =0;
 
     private void OnEnable()
     {
         ShowBomb(Pref_Data.BombID);
+        gold.text = Pref_Data.Gold.ToString();
     }
 
     public void ShowBomb(int id)
@@ -49,9 +53,14 @@ public class ShopUI : MonoBehaviour
 
     public void Buying()
     {
-        GameManager.instance.bulletSOs[currId].weapon.IsBought = true;
-        Equip.gameObject.SetActive(true);
-        Buy.gameObject.SetActive(false);
+        if(Pref_Data.Gold >= GameManager.instance.bulletSOs[currId].Cost)
+        {
+            Pref_Data.Gold -= (int)GameManager.instance.bulletSOs[currId].Cost;
+            GameManager.instance.bulletSOs[currId].weapon.IsBought = true;
+            gold.text = Pref_Data.Gold.ToString();
+            Equip.gameObject.SetActive(true);
+            Buy.gameObject.SetActive(false);
+        }
     }
 
     public void ExitToMain()

@@ -6,8 +6,15 @@ using UnityEngine.UI;
 public class InGameStory : MonoBehaviour
 {
     [SerializeField] GameObject PopUp;
+    public Text gold;
     public GameObject WinPopUp;
     public Text winner;
+
+    private void OnEnable()
+    {
+        gold.text = Pref_Data.Gold.ToString();
+    }
+
     public void Pause()
     {
         GameManager.instance.StopTime();

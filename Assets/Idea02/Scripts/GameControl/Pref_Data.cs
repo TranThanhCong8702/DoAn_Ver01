@@ -16,4 +16,10 @@ public static class Pref_Data
         get => PlayerPrefs.GetInt("bombID", 0);
         set => PlayerPrefs.SetInt("bombID", value);
     }
+
+    public static int Gold
+    {
+        get => PlayerPrefs.GetInt("Gold", 0);
+        set => PlayerPrefs.SetInt("Gold", value);
+    }
 }
