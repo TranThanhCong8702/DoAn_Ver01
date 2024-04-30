@@ -12,6 +12,10 @@ public class PlayerDameReciever : MonoBehaviour
         {
             managre.HpDes(50);
         }
+        if (collision.CompareTag("traps"))
+        {
+            managre.HpDes(2);
+        }
         if (collision.CompareTag("Missile"))
         {
             var t = collision.GetComponent<Weapons>();

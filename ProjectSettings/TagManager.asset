@@ -7,7 +7,7 @@ TagManager:
   - Ground
   - Missile
   - Bomb
-  - FxTemporaire
+  - traps
   layers:
   - Default
   - TransparentFX

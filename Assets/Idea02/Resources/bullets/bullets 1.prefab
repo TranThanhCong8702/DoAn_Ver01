@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc82720c1da2b154983d9068a811ebc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 2
   WaitTime: 0.2
   WaitTimeToEx: 0
   AppearTime: 5
