@@ -56,10 +56,18 @@ public class Weapons : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.transform.CompareTag("Bomb") && collision.isTrigger)
-        //{
-        //    Explode();
-        //}
+        if (collision.transform.CompareTag("Enemy") && !col.isTrigger)
+        {
+            col.isTrigger = true;
+            joint.enabled = true;
+            joint.connectedBody = collision.attachedRigidbody;
+            joint.enableCollision = true;
+            if (anim)
+            {
+                anim.enabled = true;
+            }
+            StartCoroutine(DelayEx());
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

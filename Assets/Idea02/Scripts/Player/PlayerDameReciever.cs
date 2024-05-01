@@ -12,7 +12,7 @@ public class PlayerDameReciever : MonoBehaviour
         {
             managre.HpDes(50);
         }
-        if (collision.CompareTag("traps"))
+        if (collision.CompareTag("traps") || collision.CompareTag("Enemy"))
         {
             managre.HpDes(2);
         }
