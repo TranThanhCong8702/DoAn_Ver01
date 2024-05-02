@@ -193,6 +193,29 @@ public class Movement2 : MonoBehaviour
         {
             anim.Play("idle");
             isStandDown = false;
+            if (Hip.velocity.x != 0)
+            {
+                    if (Mathf.Abs(MaxSpeed) < Mathf.Abs(Hip.velocity.x))
+                    {
+                        Hip.velocity = new Vector2(Mathf.Sign(Hip.velocity.x) * MaxSpeed, Hip.velocity.y);
+                    }
+                    else
+                    {
+                        Hip.velocity = new Vector2(Hip.velocity.x, Hip.velocity.y);
+                    }
+
+            }
+            if (Hip.velocity.y != 0)
+            {
+                    if (YMaxSpeed < Hip.velocity.y)
+                    {
+                        Hip.velocity = new Vector2(Hip.velocity.x, MaxSpeed);
+                    }
+                    else
+                    {
+                        Hip.velocity = new Vector2(Hip.velocity.x, Hip.velocity.y);
+                    }
+            }
         }
     }
     IEnumerator MoveRight(float seconds)
