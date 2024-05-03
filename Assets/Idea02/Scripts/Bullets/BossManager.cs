@@ -16,7 +16,7 @@ public class BossManager : MonoBehaviour
     public float speed = 5f;
     public float rotateSpeed = 200f;
     private Rigidbody2D rb;
-    public int i = 0;
+    int i = 0;
 
     // Use this for initialization
     void Start()
