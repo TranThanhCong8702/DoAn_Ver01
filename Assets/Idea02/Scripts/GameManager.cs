@@ -111,21 +111,29 @@ public class GameManager : MonoBehaviour
         PlayerNumbCurr--;
         if (PlayerNumbCurr == 0)
         {
-            winnerName = "YOU LOSE, BOSS";
-            StartCoroutine(DelayWinStory());
+            winnerName = "YOU LOSE";
+            StartCoroutine(DelayWinStory(2));
         }
     }
     public void StoryWin()
     {
-        winnerName = "YOU";
-        StartCoroutine(DelayWinStory());
+        winnerName = "YOU WIN";
+        StartCoroutine(DelayWinStory(0));
     }
-    IEnumerator DelayWinStory()
+
+    public void Escape()
     {
-        yield return new WaitForSeconds(2f);
+        winnerName = "YOU ESCAPE";
+        StartCoroutine(DelayWinStory(0));
+    }
+
+    IEnumerator DelayWinStory(float wait)
+    {
+        yield return new WaitForSeconds(wait);
         StopTime();
         UIController.instance.storuUI.WinPopUp.SetActive(true);
-        UIController.instance.storuUI.winner.text = winnerName + " WIN !";
+        UIController.instance.storuUI.winner.text = winnerName;
+        StopAllCoroutines();
     }
 
     IEnumerator DelayWin()

@@ -360,13 +360,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  attackRange: 8
+  attackRange: 10
   iAddAMount: 1
   player: {fileID: 0}
   DefaultPos: {x: 0, y: 0, z: 0}
   speed: 3
   rotateSpeed: 360
-  i: 0
 --- !u!70 &70022225610797560
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

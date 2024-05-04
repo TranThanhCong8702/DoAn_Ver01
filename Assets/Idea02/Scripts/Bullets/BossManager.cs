@@ -50,9 +50,18 @@ public class BossManager : MonoBehaviour
     {
         yield return new WaitUntil(() => collision.CompareTag("Missile"));
         var t = collision.GetComponent<Weapons>();
-        HP -= t.Damage;
-        HPbar.fillAmount = HP / 50;
-        Debug.Log(transform.name);
+        if(HP > 0)
+        {
+            HP -= t.Damage * 5;
+            HPbar.fillAmount = HP / 50;
+            if (HP <= 0)
+            {
+                GameManager.instance.StoryWin();
+                Pref_Data.Gold += 50;
+                UIController.instance.storuUI.gold.text = Pref_Data.Gold.ToString();
+                ObjectPool.instance.ReturnAllPool();
+            }
+        }
         collision.enabled = false;
     }
 

@@ -21,7 +21,7 @@ public class Pool
         this.count = count;
     }
 
-    public void InitaPool(Transform container, Dictionary<int, int> dicClones)
+    public void CreateAPool(Transform container, Dictionary<int, int> dicClones)
     {
         actives = new List<GameObject>();
         deactives = new Queue<GameObject>();
@@ -99,11 +99,11 @@ public class ObjectPool : MonoBehaviour
     {
         foreach (var pool in pools)
         {
-            pool.InitaPool(transform, dicClones);
+            pool.CreateAPool(transform, dicClones);
         }
         foreach (var pool in mapPlat)
         {
-            pool.InitaPool(transform, dicClones);
+            pool.CreateAPool(transform, dicClones);
         }
     }
 
