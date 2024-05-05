@@ -239,7 +239,7 @@ Transform:
   m_GameObject: {fileID: 6769421503075710352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: -1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6319343032443933260}
@@ -363,9 +363,13 @@ MonoBehaviour:
   attackRange: 10
   iAddAMount: 1
   player: {fileID: 0}
+  col: {fileID: 70022225610797560}
   DefaultPos: {x: 0, y: 0, z: 0}
+  anim: {fileID: 6769421503075710353}
   speed: 3
   rotateSpeed: 360
+  IsAlive: 1
+  attackDistance: 2
 --- !u!70 &70022225610797560
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

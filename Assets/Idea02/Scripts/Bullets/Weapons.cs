@@ -18,7 +18,7 @@ public class Weapons : MonoBehaviour
     [SerializeField] Animator anim;
     public FixedJoint2D joint;
     [SerializeField] float maxSize = 5f;
-    
+
     float appearTimebase = 0;
 
     public bool IsBought

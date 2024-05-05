@@ -120,7 +120,7 @@ MonoBehaviour:
   Damage: 1
   WaitTime: 0.2
   WaitTimeToEx: 0
-  AppearTime: 5
+  AppearTime: 10
   rb: {fileID: 6654971608655186935}
   ingameScale: 1
   spriteRenderer: {fileID: 6654971608655186930}
@@ -130,6 +130,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   joint: {fileID: 2148257445144576694}
   maxSize: 3
+  slowerMag: 3
 --- !u!50 &6654971608655186935
 Rigidbody2D:
   serializedVersion: 4

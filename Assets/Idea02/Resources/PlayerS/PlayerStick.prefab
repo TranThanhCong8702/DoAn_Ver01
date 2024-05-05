@@ -1362,7 +1362,7 @@ MonoBehaviour:
   fix: {fileID: 2336191551702791038}
   rb: {fileID: 1370446381925504701}
   playermanager: {fileID: 1427615195}
-  ThrowSpeed: 15
+  ThrowSpeed: 12
 --- !u!1 &1370446382059984146
 GameObject:
   m_ObjectHideFlags: 0

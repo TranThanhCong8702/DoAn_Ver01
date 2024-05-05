@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
     public void StoryWin()
     {
         winnerName = "YOU WIN";
-        StartCoroutine(DelayWinStory(0));
+        StartCoroutine(DelayWinStory(2));
     }
 
     public void Escape()

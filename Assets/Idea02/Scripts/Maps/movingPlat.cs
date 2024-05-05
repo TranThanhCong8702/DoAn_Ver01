@@ -6,7 +6,6 @@ public class movingPlat : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float speed = 1f;
-    [SerializeField] float WaitDisApp = 1f;
     [SerializeField] Vector3 ScalePlat;
     public bool followX;
     public bool IsFirstPlat;
