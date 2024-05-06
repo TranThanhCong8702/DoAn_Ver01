@@ -7,6 +7,7 @@ public class BossManager : MonoBehaviour
 {
     [SerializeField] float HP = 50f;
     [SerializeField] Image HPbar;
+    [SerializeField] float HPregenRate = 1f;
     [SerializeField] List<Transform> target;
     [SerializeField] float attackRange = 10f;
     [SerializeField] int iAddAMount = 1;
@@ -47,8 +48,10 @@ public class BossManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bomb"))
+        if (collision.CompareTag("Bomb") && collision.IsTouching(col))
         {
+            Debug.Log("Bombed");
+            UIController.instance.storuUI.hit.gameObject.SetActive(true);
             StartCoroutine(Bombed(collision));
         }
     }
@@ -56,10 +59,12 @@ public class BossManager : MonoBehaviour
     IEnumerator Bombed(Collider2D collision)
     {
         yield return new WaitUntil(() => collision.CompareTag("Missile"));
+        UIController.instance.storuUI.hit.gameObject.SetActive(false);
         var t = collision.GetComponent<Weapons>();
-        if(HP > 0)
+        collision.enabled = false;
+        if (HP > 0)
         {
-            HP -= t.Damage * 5;
+            HP = HP - t.Damage * 2;
             HPbar.fillAmount = HP / 50;
             if (HP <= 0)
             {
@@ -72,7 +77,6 @@ public class BossManager : MonoBehaviour
                 ObjectPool.instance.ReturnAllPool();
             }
         }
-        collision.enabled = false;
     }
 
     void FixedUpdate()
@@ -118,6 +122,11 @@ public class BossManager : MonoBehaviour
                 {
                     iAddAMount = -iAddAMount;
                 }
+            }
+            if(HP < 50)
+            {
+                HP += Time.deltaTime * HPregenRate;
+                HPbar.fillAmount = HP / 50;
             }
         }
     }

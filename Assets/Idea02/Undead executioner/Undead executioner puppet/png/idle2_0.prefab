@@ -302,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7165872772885345886
 Transform:
   m_ObjectHideFlags: 0
@@ -331,9 +331,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.81268024, y: 0.8340664}
+  m_Offset: {x: 1.0386243, y: 0.8001785}
   serializedVersion: 2
-  m_Radius: 2.5744753
+  m_Radius: 2.4276166
 --- !u!1 &7165872774793145185
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f5ea641d862384dab4cacd1b6f8652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 50
   HPbar: {fileID: 4712530696986511764}
   target:
   - {fileID: 0}
@@ -505,7 +505,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  attackRange: 10
+  attackRange: 15
   iAddAMount: 1
   player: {fileID: 0}
   col: {fileID: 7165872774793145190}
@@ -514,4 +514,4 @@ MonoBehaviour:
   speed: 5
   rotateSpeed: 200
   IsAlive: 1
-  attackDistance: 4
+  attackDistance: 5

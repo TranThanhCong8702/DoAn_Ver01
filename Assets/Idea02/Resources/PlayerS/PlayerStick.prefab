@@ -2521,7 +2521,7 @@ MonoBehaviour:
   MaxSpeed: 5
   YMaxSpeed: 5
   deAccelRate: 0
-  speed: 3
+  speed: 4.5
   legWait: 0.05
   bulletspawner: {fileID: 22306684}
   playermanager: {fileID: 1427615195}

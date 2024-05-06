@@ -105,7 +105,10 @@ public class Weapons : MonoBehaviour
             col.isTrigger = true;
             transform.localScale = Vector3.one * maxSize;
             transform.tag = "Missile";
-            StartCoroutine(ReturnPool());
+            if(gameObject.activeInHierarchy)
+            {
+                StartCoroutine(ReturnPool());
+            }
     }
 
     IEnumerator ReturnPool()

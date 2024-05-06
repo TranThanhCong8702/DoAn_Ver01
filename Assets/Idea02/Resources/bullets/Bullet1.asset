@@ -17,5 +17,5 @@ MonoBehaviour:
   weapon: {fileID: 6654971608655186932, guid: 75219c63d11830f478be853b8fb60730, type: 3}
   avatar: {fileID: 0}
   Bullets: {fileID: 6654971608655186934, guid: 75219c63d11830f478be853b8fb60730, type: 3}
-  Description: 11111
+  Description: "Damage: 2. \nCountdown before explode: 0.2s."
   Name: Fire Bomb

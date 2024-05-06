@@ -17,5 +17,5 @@ MonoBehaviour:
   weapon: {fileID: 6654971608655186932, guid: 0aff68da562356b41a68a6089563ea9f, type: 3}
   avatar: {fileID: 0}
   Bullets: {fileID: 6654971608655186934, guid: 0aff68da562356b41a68a6089563ea9f, type: 3}
-  Description: 22222
+  Description: "Damage: 2. \nCountdown before explode: 0.2s."
   Name: Light Bomb

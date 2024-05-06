@@ -9,6 +9,7 @@ public class InGameStory : MonoBehaviour
     public Text gold;
     public GameObject WinPopUp;
     public Text winner;
+    public Text hit;
 
     private void OnEnable()
     {

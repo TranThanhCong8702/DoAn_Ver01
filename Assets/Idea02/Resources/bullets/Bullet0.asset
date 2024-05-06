@@ -17,5 +17,5 @@ MonoBehaviour:
   weapon: {fileID: 6654971608655186932, guid: 7214fec7107d8dc43a5288d83a20084c, type: 3}
   avatar: {fileID: 0}
   Bullets: {fileID: 6654971608655186934, guid: 7214fec7107d8dc43a5288d83a20084c, type: 3}
-  Description: "Explode Range: 3. \nCountdown before explode: 2s."
+  Description: "Damage: 1. \nCountdown before explode: 0.2s."
   Name: Normal Bomb

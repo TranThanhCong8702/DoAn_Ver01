@@ -17,5 +17,5 @@ MonoBehaviour:
   weapon: {fileID: 6654971608655186932, guid: cc6ad8a197b5bd24299409929cf0e5e7, type: 3}
   avatar: {fileID: 0}
   Bullets: {fileID: 6654971608655186934, guid: cc6ad8a197b5bd24299409929cf0e5e7, type: 3}
-  Description: 44444
+  Description: "Damage: 3. \nCountdown before explode: 2s."
   Name: Blood Bomb
