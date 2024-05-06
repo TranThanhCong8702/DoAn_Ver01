@@ -12,6 +12,7 @@ public class Gold : MonoBehaviour
             if (!isAdd)
             {
                 Pref_Data.Gold++;
+                SoundManager.instance.CoinSound(transform);
                 isAdd = true;
             }
             UIController.instance.storuUI.gold.text = Pref_Data.Gold.ToString();

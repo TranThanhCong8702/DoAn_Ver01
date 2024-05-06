@@ -82,6 +82,11 @@ public class BossManager : MonoBehaviour
     void FixedUpdate()
     {
         if (!IsAlive) { return; }
+        if (GameManager.instance.PlayerNumbCurr == 0)
+        {
+            anim.Play("Idle");
+            return;
+        }
         player = GameManager.instance.playersCurr[0];
         if (player && Vector2.Distance(rb.position, (Vector2)player.GetComponent<Movement2>().Hip.position) < attackRange)
         {

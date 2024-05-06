@@ -10,6 +10,13 @@ public class SoundManager : MonoBehaviour
     public Slider volumeSlider2;
     public Slider volumeSlider3;
 
+    [SerializeField] AudioClip coinsound;
+
+    public void CoinSound(Transform coin)
+    {
+        AudioSource.PlayClipAtPoint(coinsound, coin.position);
+    }
+
     private void Awake()
     {
         instance = this;
