@@ -121,18 +121,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.635078, y: -0.0025657713}
+  m_Offset: {x: 10.891733, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6666667, y: 0.53333336}
+    oldSize: {x: 0.8333333, y: 0.6666667}
     newSize: {x: 0.1, y: 0.08}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.06942, y: 1.0113835}
+  m_Size: {x: 21.58273, y: 1.2}
   m_EdgeRadius: 0
 --- !u!82 &1800574977993620666
 AudioSource:
@@ -146,7 +146,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 25ce2698182dfeb42a13a8f8235762ca, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 3
   Loop: 1
   Mute: 0
@@ -678,17 +678,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 50
   HPbar: {fileID: 1345922103609113054}
-  HPregenRate: 0.25
+  HPregenRate: 0.5
   target:
   - {fileID: 0}
   - {fileID: 0}
-  attackRange: 25
+  attackRange: 20
   iAddAMount: 1
   player: {fileID: 1345922104778878429}
   col: {fileID: 1345922104778878424}
   DefaultPos: {x: 72, y: 0, z: 0}
   anim: {fileID: 1345922104778878426}
-  speed: 3
+  speed: 5
   rotateSpeed: 120
   IsAlive: 1
-  attackDistance: 25
+  attackDistance: 20

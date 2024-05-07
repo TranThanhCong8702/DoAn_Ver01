@@ -11,6 +11,16 @@ public class SoundManager : MonoBehaviour
     public Slider volumeSlider3;
 
     [SerializeField] AudioClip coinsound;
+    [SerializeField] GameObject SoundMain;
+
+    public void SoundMainOff()
+    {
+        SoundMain.SetActive(false);
+    }
+    public void SoundMainOn()
+    {
+        SoundMain.SetActive(true);
+    }
 
     public void CoinSound(Transform coin)
     {

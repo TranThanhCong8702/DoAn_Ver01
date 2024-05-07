@@ -12,6 +12,7 @@ public class Playermanager : MonoBehaviour
     [SerializeField] Transform HpbarContainer;
     [SerializeField] Transform followTarget;
     [Header("HpBar Control")]
+    [SerializeField] ParticleSystem blood;
     [SerializeField] Image HPslider;
     public float HPvalue;
     public float HPmax = 10;
@@ -98,5 +99,10 @@ public class Playermanager : MonoBehaviour
     public void SelfDesImadiate()
     {
         Destroy(gameObject);
+    }
+
+    public void BloodSpill()
+    {
+        blood.Play();
     }
 }

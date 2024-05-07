@@ -10,10 +10,12 @@ public class PlayerDameReciever : MonoBehaviour
     {
         if (collision.CompareTag("Finish"))
         {
+            managre.BloodSpill();
             managre.HpDes(50);
         }
         if (collision.CompareTag("traps") /*|| collision.CompareTag("Enemy")*/)
         {
+            managre.BloodSpill();
             managre.HpDes(2);
         }
         if (collision.CompareTag("Missile"))
@@ -24,6 +26,7 @@ public class PlayerDameReciever : MonoBehaviour
                 managre.HpDes(t.Damage);
                 Debug.Log("Being Damaged " + transform.name);
                 collision.enabled = false;
+                managre.BloodSpill();
             }
         }
     }

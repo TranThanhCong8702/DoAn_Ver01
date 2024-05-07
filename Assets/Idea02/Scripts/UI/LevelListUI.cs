@@ -12,6 +12,7 @@ public class LevelListUI : MonoBehaviour
         GameManager.instance.InsStorymaps(id);
         gameObject.SetActive(false);
         UIController.instance.storuUI.gameObject.SetActive(true);
+        SoundManager.instance.SoundMainOff();
     }
     public void ExitToMain()
     {

@@ -31,6 +31,7 @@ public class InGameStory : MonoBehaviour
         WinPopUp.SetActive(false);
         gameObject.SetActive(false);
         GameManager.instance.ChangeCamBack();
+        SoundManager.instance.SoundMainOn();
     }
 
     public void Resume()
