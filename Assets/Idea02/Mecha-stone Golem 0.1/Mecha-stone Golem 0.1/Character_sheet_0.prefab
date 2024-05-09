@@ -682,13 +682,13 @@ MonoBehaviour:
   target:
   - {fileID: 0}
   - {fileID: 0}
-  attackRange: 20
+  attackRange: 25
   iAddAMount: 1
   player: {fileID: 1345922104778878429}
   col: {fileID: 1345922104778878424}
   DefaultPos: {x: 72, y: 0, z: 0}
   anim: {fileID: 1345922104778878426}
-  speed: 5
+  speed: 2.5
   rotateSpeed: 120
   IsAlive: 1
   attackDistance: 20

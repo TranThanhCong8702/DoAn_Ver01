@@ -24,6 +24,7 @@ public class InGameStory : MonoBehaviour
     }
     public void ExitToMain()
     {
+        hit.gameObject.SetActive(false);
         GameManager.instance.DesStoryMap();
         GameManager.instance.AllPlayerOff();
         UIController.instance.mainUI.gameObject.SetActive(true);

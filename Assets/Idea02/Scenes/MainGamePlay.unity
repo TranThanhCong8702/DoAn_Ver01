@@ -41926,6 +41926,8 @@ MonoBehaviour:
   Maps:
   - {fileID: 4239233760210395312, guid: 3d33fbb6ace9ee842a2405225691ef69, type: 3}
   - {fileID: 4239233760210395312, guid: 0a622a80f6817fc438463b9e1c782267, type: 3}
+  - {fileID: 4239233760210395312, guid: 43833ee6ed35ba64ab58d2b7393cfeca, type: 3}
+  - {fileID: 4239233760210395312, guid: 5d20d2dc7aebe484b9598a925be5c2ea, type: 3}
   Players:
   - {fileID: 1370446382881669581, guid: 168f6464a6e6a344f92621b6ee57f16c, type: 3}
   - {fileID: 943024557147449295, guid: cae63e77c46085244b54725936c0519d, type: 3}
@@ -53832,7 +53834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.21412872}
   m_AnchorMax: {x: 1, y: 0.7897426}
-  m_AnchoredPosition: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: -0.99998474}
   m_SizeDelta: {x: 0, y: 232}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1582823862
@@ -59759,8 +59761,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 361b30c70dcf1ad4dace5f6161d495b2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
-  m_Pitch: 1
+  m_Volume: 1
+  m_Pitch: 1.25
   Loop: 1
   Mute: 0
   Spatialize: 0
