@@ -11,6 +11,7 @@ public class Gold : MonoBehaviour
         {
             if (!isAdd)
             {
+                UIController.instance.storuUI.addGold.addGoldpopOn();
                 Pref_Data.Gold++;
                 SoundManager.instance.CoinSound(transform);
                 isAdd = true;

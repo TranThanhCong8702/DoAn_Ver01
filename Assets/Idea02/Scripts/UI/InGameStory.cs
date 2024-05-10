@@ -10,6 +10,7 @@ public class InGameStory : MonoBehaviour
     public GameObject WinPopUp;
     public Text winner;
     public Text hit;
+    public addGoldPopUp addGold;
 
     private void OnEnable()
     {
@@ -24,6 +25,7 @@ public class InGameStory : MonoBehaviour
     }
     public void ExitToMain()
     {
+        addGold.gameObject.SetActive(false);
         hit.gameObject.SetActive(false);
         GameManager.instance.DesStoryMap();
         GameManager.instance.AllPlayerOff();

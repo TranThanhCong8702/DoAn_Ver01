@@ -109,19 +109,19 @@ public class GameManager : MonoBehaviour
         PlayerNumbCurr--;
         if (PlayerNumbCurr == 0)
         {
-            winnerName = "YOU LOSE";
+            winnerName = "YOU LOSE!";
             StartCoroutine(DelayWinStory(2));
         }
     }
     public void StoryWin()
     {
-        winnerName = "YOU WIN";
+        winnerName = "YOU WIN!\n\n" + "Gold: + 50!";
         StartCoroutine(DelayWinStory(2));
     }
 
     public void Escape()
     {
-        winnerName = "YOU ESCAPE";
+        winnerName = "YOU ESCAPE!";
         StartCoroutine(DelayWinStory(0));
     }
 
