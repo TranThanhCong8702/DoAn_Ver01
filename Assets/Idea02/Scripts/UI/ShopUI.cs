@@ -7,6 +7,7 @@ public class ShopUI : MonoBehaviour
 {
     [SerializeField] Text BombName;
     [SerializeField] Text Des;
+    [SerializeField] Text NotEnough;
     [SerializeField] Button Buy;
     [SerializeField] Button Equip;
 
@@ -22,6 +23,7 @@ public class ShopUI : MonoBehaviour
 
     public void ShowBomb(int id)
     {
+        NotEnough.gameObject.SetActive(false);
         currId = id;
         BombName.text = GameManager.instance.bulletSOs[id].Name;
         Des.text = GameManager.instance.bulletSOs[id].Description;
@@ -60,6 +62,10 @@ public class ShopUI : MonoBehaviour
             gold.text = Pref_Data.Gold.ToString();
             Equip.gameObject.SetActive(true);
             Buy.gameObject.SetActive(false);
+        }
+        else
+        {
+            NotEnough.gameObject.SetActive(true);
         }
     }
 

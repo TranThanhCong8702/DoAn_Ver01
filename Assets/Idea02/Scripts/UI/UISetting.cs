@@ -28,6 +28,7 @@ public class UISetting : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         GameManager.instance.FirstBomb();
+        SoundManager.instance.volumeSlider.value = Pref_Data.Sound;
         AreSurePanel.SetActive(false);
     }
     public void NoDelete()

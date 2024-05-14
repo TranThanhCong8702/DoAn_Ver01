@@ -720,7 +720,7 @@
                 {
                     "name": "",
                     "id": "8cf325d6-0d9f-4d8c-ab54-1fb1bd2f499e",
-                    "path": "<Keyboard>/2",
+                    "path": "<Keyboard>/1",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -731,7 +731,7 @@
                 {
                     "name": "",
                     "id": "0f77329d-db01-402c-93f6-67c0ce89c37b",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/2",
                     "interactions": "Press,Press(behavior=1)",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -832,7 +832,7 @@
                 {
                     "name": "",
                     "id": "af66362c-ba0a-497a-8129-044e23c9cdbc",
-                    "path": "<Keyboard>/leftBracket",
+                    "path": "<Keyboard>/p",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -843,7 +843,7 @@
                 {
                     "name": "",
                     "id": "c02c7788-18f8-4b03-ada3-1ebbc51baa54",
-                    "path": "<Keyboard>/p",
+                    "path": "<Keyboard>/leftBracket",
                     "interactions": "Press,Press(behavior=1)",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
