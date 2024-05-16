@@ -403,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 50
   HPbar: {fileID: 6967387393676914761}
+  HPregenRate: 0.25
   target:
   - {fileID: 0}
   - {fileID: 0}
