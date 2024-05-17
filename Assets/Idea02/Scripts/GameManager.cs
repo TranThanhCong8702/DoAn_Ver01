@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public CinemachineVirtualCamera StoryCam;
 
     public bool IsPvp;
+    int MapsI = 0;
     private void Awake()
     {
         instance = this;
@@ -43,8 +44,13 @@ public class GameManager : MonoBehaviour
     public void InsPvPmaps()
     {
         IsPvp = true;
-        int i = Random.Range(0,Maps.Count);
-        var t = Instantiate(Maps[i].gameObject, GamePlay);
+        //int MapsI = Random.Range(0,Maps.Count);
+        var t = Instantiate(Maps[MapsI].gameObject, GamePlay);
+        MapsI++;
+        if(MapsI >= Maps.Count)
+        {
+            MapsI = 0;
+        }
         mapcurr.Add(t);
     }
     public void DestroyMap()

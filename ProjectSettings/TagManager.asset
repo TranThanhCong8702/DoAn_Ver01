@@ -9,6 +9,7 @@ TagManager:
   - Bomb
   - traps
   - Enemy
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Player
   - Weapons
   - BackGround
-  - 
+  - BossAttack
   - 
   - 
   - 

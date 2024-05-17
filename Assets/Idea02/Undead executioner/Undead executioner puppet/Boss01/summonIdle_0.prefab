@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1647937916518019812}
   - component: {fileID: 8536919509227109273}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: attack
   m_TagString: traps
   m_Icon: {fileID: 0}

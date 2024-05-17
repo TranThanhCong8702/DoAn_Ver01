@@ -64,7 +64,7 @@ public class BossManager : MonoBehaviour
         collision.enabled = false;
         if (HP > 0)
         {
-            HP = HP - t.Damage * 2;
+            HP = HP - t.Damage * 3;
             HPbar.fillAmount = HP / 50;
             if (HP <= 0)
             {

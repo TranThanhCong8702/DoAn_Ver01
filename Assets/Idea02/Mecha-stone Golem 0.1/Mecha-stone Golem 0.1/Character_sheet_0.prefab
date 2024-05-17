@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1922299423}
   - component: {fileID: 1922299422}
   - component: {fileID: 1800574977993620666}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Laser_sheet_0
   m_TagString: traps
   m_Icon: {fileID: 0}
