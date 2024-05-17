@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator DelayWin()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0f);
         StopTime();
         UIController.instance.inGameUI.WinPopUp.SetActive(true);
         UIController.instance.inGameUI.winner.text = winnerName + " WIN !";
