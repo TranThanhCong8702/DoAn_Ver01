@@ -35,6 +35,7 @@ public class InGameStory : MonoBehaviour
         gameObject.SetActive(false);
         GameManager.instance.ChangeCamBack();
         SoundManager.instance.SoundMainOn();
+        GameManager.instance.StopWinsSTR();
     }
 
     public void Resume()

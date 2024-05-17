@@ -23,6 +23,7 @@ public class InGameUI : MonoBehaviour
         WinPopUp.SetActive(false);
         gameObject.SetActive(false);
         SoundManager.instance.SoundMainOn();
+        GameManager.instance.StopWins();
     }
     public void PlayAgain()
     {

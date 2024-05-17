@@ -11,8 +11,7 @@ public class GameManager : MonoBehaviour
     public Transform GamePlay;
     public Camera cam;
     public LineRenderer _line;
-    //public Movement2 playermove;
-    //public Hooks hook;
+
     public List<BulletSO> bulletSOs;
 
     public List<GameObject> Maps;
@@ -31,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     public bool IsPvp;
     int MapsI = 0;
+    Coroutine delayWin;
+    Coroutine delayWinStr;
     private void Awake()
     {
         instance = this;
@@ -106,8 +107,19 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
-            StartCoroutine(DelayWin());
+            delayWin = StartCoroutine(DelayWin());
         }
+    }
+
+    public void StopWinsSTR()
+    {
+        if (delayWinStr == null) return;
+        StopCoroutine(delayWinStr);
+    }
+    public void StopWins()
+    {
+        if (delayWin == null) return;
+        StopCoroutine(delayWin);
     }
 
     public void StoryLoss()
@@ -116,13 +128,13 @@ public class GameManager : MonoBehaviour
         if (PlayerNumbCurr == 0)
         {
             winnerName = "YOU LOSE!";
-            StartCoroutine(DelayWinStory(2));
+            delayWinStr = StartCoroutine(DelayWinStory(2));
         }
     }
     public void StoryWin()
     {
         winnerName = "YOU WIN!\n\n" + "Gold: + 50!";
-        StartCoroutine(DelayWinStory(2));
+        delayWinStr = StartCoroutine(DelayWinStory(2));
     }
 
     public void Escape()
@@ -142,7 +154,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator DelayWin()
     {
-        yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(2f);
         StopTime();
         UIController.instance.inGameUI.WinPopUp.SetActive(true);
         UIController.instance.inGameUI.winner.text = winnerName + " WIN !";
